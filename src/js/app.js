@@ -6,15 +6,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import spliddit from 'spliddit';
-import emojiData from '../../emoji-data/emoji.json';
-import appleColorEmoji from '../../emoji-data/sheet_apple_20.png';
 
-const appleColorEmojiTx = new PIXI.Texture.fromImage(appleColorEmoji);
-const textures = emojiData.reduce((textures, e) => {
-  if (e.has_img_apple) {
-    const rect = new PIXI.Rectangle(e.sheet_x * 20, e.sheet_y * 20, 20, 20);
-    textures[e.unified] = new PIXI.Texture(appleColorEmojiTx, rect);
-  }
+import appleColorEmoji from '../spritesheets/apple-color-emoji-20.json';
+import appleColorEmojiSrc from '../spritesheets/apple-color-emoji-20.png';
+
+const appleColorEmojiTx = new PIXI.Texture.fromImage(appleColorEmojiSrc);
+const textures = Object.keys(appleColorEmoji.frames).reduce((textures, filename) => {
+  const codePoint = filename.replace(/\.png$/, '');
+  const frame = appleColorEmoji.frames[filename];
+  const rect = new PIXI.Rectangle(frame.frame.x, frame.frame.y, frame.frame.w, frame.frame.h);
+  textures[codePoint] = new PIXI.Texture(appleColorEmojiTx, rect);
   return textures;
 }, {});
 
@@ -38,11 +39,6 @@ function toCodePoint(unicodeSurrogates, sep) {
   return r.join(sep || '-');
 }
 
-const emojis = spliddit("😀😬😂😃😄😅😆😇😉😊☺️😋😌😍😘😗😙😚😜😝😛😎😏😶😐😑😒😳😞😟😠😡😔😕😣😖😫😩😤😮😱😨😰😯😦😧😢😥😪😓😭😲😷😴💩😈👿👹👺💀👻👽👀").map((e) => {
-  const codePoint = toCodePoint(e).toUpperCase();
-  return textures[toCodePoint(e).toUpperCase()];
-}).filter((t) => t);
-
 class EmojiRain extends React.Component {
   static defaultProps = {
     width: 2000,
@@ -56,6 +52,12 @@ class EmojiRain extends React.Component {
 
   render() {
     return <canvas />;
+  }
+
+  getEmojiTextures() {
+    return spliddit(this.props.emojis).map((e) => {
+      return textures[toCodePoint(e)];
+    }).filter(t => t);
   }
 
   getCarpetDimensions(props) {
@@ -127,6 +129,7 @@ class EmojiRain extends React.Component {
       const {rows, cols} = this.getCarpetDimensions();
       const spriteCarpet = this._spriteCarpet;
       const drops = this.incrementDrops(this.state.drops);
+      const emojis = this.getEmojiTextures();
       for (let r = 0; r < rows; r++) {
         let row = spriteCarpet[r];
         if (row == null) {
@@ -167,7 +170,6 @@ class Ticker extends React.Component {
     width: 2000,
     height: 1000,
     emojiSize: 20,
-    emojis: "😀😬😂😃😄😅😆😇😉😊☺️😋😌😍😘😗😙😚😜😝😛😎😏😶😐😑😒😳😞😟😠😡😔😕😣😖😫😩😤😮😱😨😰😯😦😧😢😥😪😓😭😲😷😴💩😈👿👹👺💀👻👽👀",
     fallProb: 0.005,
     refreshRate: 80,
     mutationProb: 0.02,
