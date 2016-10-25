@@ -1,30 +1,63 @@
 import 'babel-polyfill';
-import happyFace from '../../apple-color-emoji/1f600.png';
-import relievedFace from '../../apple-color-emoji/1f60c.png'; 
+
+import spliddit from 'spliddit';
+import '../styles/reset.css';
+
+function toCodePoint(unicodeSurrogates, sep) {
+  var
+    r = [],
+    c = 0,
+    p = 0,
+    i = 0;
+  while (i < unicodeSurrogates.length) {
+    c = unicodeSurrogates.charCodeAt(i++);
+    if (p) {
+      r.push((0x10000 + ((p - 0xD800) << 10) + (c - 0xDC00)).toString(16));
+      p = 0;
+    } else if (0xD800 <= c && c <= 0xDBFF) {
+      p = c;
+    } else {
+      r.push(c.toString(16));
+    }
+  }
+  return r.join(sep || '-');
+}
+
+const emojis = spliddit("😀😬😂😃😄😅😆😇😉😊☺️😋😌😍😘😗😙😚😜😝😛😎😏😶😐😑😒😳😞😟😠😡😔😕😣😖😫😩😤😮😱😨😰😯😦😧😢😥😪😓😭😲😷😴💩😈👿👹👺💀👻👽👀").map((e) => {
+  const codePoint = toCodePoint(e);
+  let url;
+  try {
+    url = require('../../apple-color-emoji/' + codePoint + '.png');
+  } catch (err) {
+    console.log(JSON.stringify(e), err);
+  }
+  return url ? PIXI.Texture.fromImage(url) : null;
+}).filter((i) => i);
 
 const emojiSize = 20;
+const width = 2000;
+const height = 1000;
 
-const renderer = PIXI.autoDetectRenderer(1000, 500, {
+const renderer = PIXI.autoDetectRenderer(width, height, {
   transparent: true,
 });
 renderer.view.style.border = '1px solid black';
+renderer.view.style.backgroundColor = 'black';
 
 const stage = new PIXI.Container();
 
-const happyFaceTx = PIXI.Texture.fromImage(happyFace);
-const relievedFaceTx = PIXI.Texture.fromImage(relievedFace);
 
 document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(renderer.view);
   requestAnimationFrame(animate);
 });
 
-const rows = 500 / emojiSize;
-const cols = 1000 / emojiSize;
+const rows = height / emojiSize;
+const cols = width / emojiSize;
 
 const drops = [];
 for (let c = 0; c < cols; c++) {
-  drops.push(Math.floor(Math.random() * rows));
+  drops.push(Math.random() < 0.005 ? Math.floor(Math.random() * rows) : rows + 1);
 }
 
 const sprites = [];
@@ -32,13 +65,14 @@ for (let r = 0; r < rows; r++) {
   const row = [];
   sprites.push(row);
   for (let c = 0; c < cols; c++) {
-    const sprite = new PIXI.Sprite(happyFaceTx);
+    const sprite = new PIXI.Sprite();
     sprite.width = emojiSize;
     sprite.height = emojiSize;
     sprite.anchor.x = 0;
     sprite.anchor.y = 0;
     sprite.position.x = c * emojiSize;
     sprite.position.y = r * emojiSize;
+    sprite.alpha = drops[c] === r ? 1 : 0;
 
     stage.addChild(sprite);
     row.push(sprite);
@@ -58,11 +92,11 @@ function animate(time) {
     elapsed = time - startTime;
   }
 
-  const step = Math.floor(elapsed / 100);
+  const step = Math.floor(elapsed / 80);
   if (prevStep == null || prevStep != step) {
     for (let c = 0; c < drops.length; c++) {
       drops[c] += 1; 
-      if (drops[c] > 500 / emojiSize && Math.random() > 0.99) {
+      if (drops[c] > rows && Math.random() > 0.995) {
         drops[c] = 0;
       }
     }
@@ -72,8 +106,12 @@ function animate(time) {
         const sprite = sprites[r][c];
         if (drops[c] === r) {
           sprite.alpha = 1;
-        } else {
-          sprite.alpha = 0;
+          sprite.texture = emojis[Math.floor(Math.random() * emojis.length)];
+        } else if (sprite.alpha > 0) {
+          sprite.alpha -= 0.05;
+          if (Math.random() < 0.02) {
+            sprite.texture = emojis[Math.floor(Math.random() * emojis.length)];
+          }
         }
       }
     }

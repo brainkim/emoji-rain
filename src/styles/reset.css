@@ -1,0 +1,23 @@
+html {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body {
+  background-color: #000;
+
+  width: 100%;
+  height: 100%;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
