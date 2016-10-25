@@ -43,14 +43,6 @@ const emojis = spliddit("😀😬😂😃😄😅😆😇😉😊☺️😋😌�
   return textures[toCodePoint(e).toUpperCase()];
 }).filter((t) => t);
 
-// document.addEventListener('DOMContentLoaded', () => {
-//   document.body.appendChild(renderer.view);
-//   requestAnimationFrame(animate);
-// });
-
-let startTime = null;
-let prevStep = null;
-
 class EmojiRain extends React.Component {
   static defaultProps = {
     width: 2000,
@@ -63,13 +55,14 @@ class EmojiRain extends React.Component {
   }
 
   render() {
-    return <canvas width={this.props.width} height={this.props.height} />;
+    return <canvas />;
   }
 
-  getCarpetDimensions() {
+  getCarpetDimensions(props) {
+    props = props || this.props;
     return {
-      rows: this.props.height / this.props.emojiSize,
-      cols: this.props.width / this.props.emojiSize,
+      rows: Math.ceil(props.height / props.emojiSize),
+      cols: Math.ceil(props.width / props.emojiSize),
     }
   }
 
@@ -112,8 +105,6 @@ class EmojiRain extends React.Component {
         const sprite = new PIXI.Sprite();
         sprite.width = this.props.emojiSize;
         sprite.height = this.props.emojiSize;
-        sprite.anchor.x = 0;
-        sprite.anchor.y = 0;
         sprite.position.x = c * this.props.emojiSize;
         sprite.position.y = r * this.props.emojiSize;
         sprite.alpha = drops[c] === r ? 1 : 0;
@@ -129,13 +120,31 @@ class EmojiRain extends React.Component {
   }
   
   componentDidUpdate(prevProps) {
+    if (prevProps.width !== this.props.width || prevProps.height !== this.props.height) {
+      this._renderer.resize(this.props.width, this.props.height);
+    }
     if (prevProps.step !== this.props.step) {
       const {rows, cols} = this.getCarpetDimensions();
-      const drops = this.incrementDrops(this.state.drops);
       const spriteCarpet = this._spriteCarpet;
+      const drops = this.incrementDrops(this.state.drops);
       for (let r = 0; r < rows; r++) {
+        let row = spriteCarpet[r];
+        if (row == null) {
+          row = [];
+          spriteCarpet.push(row)
+        }
         for (let c = 0; c < cols; c++) {
-          const sprite = spriteCarpet[r][c];
+          let sprite = row[c];
+          if (sprite == null) {
+            sprite = new PIXI.Sprite();
+            sprite.width = this.props.emojiSize;
+            sprite.height = this.props.emojiSize;
+            sprite.position.x = c * this.props.emojiSize;
+            sprite.position.y = r * this.props.emojiSize;
+            sprite.alpha = drops[c] === r ? 1 : 0;
+            this._stage.addChild(sprite);
+            row.push(sprite);
+          }
           if (drops[c] === r) {
             sprite.alpha = 1;
             sprite.texture = emojis[Math.floor(Math.random() * emojis.length)];
@@ -205,10 +214,28 @@ class Ticker extends React.Component {
 }
 
 class App extends React.Component {
+  state = {
+    viewport: { width: 0, height: 0 }
+  }
+
+  componentDidMount() {
+    this.handleResize();
+    window.addEventListener('resize', this.handleResize);
+  }
+
   render() {
     return (
-      <Ticker width={2000} height={1000} />
+      <Ticker width={this.state.viewport.width} height={this.state.viewport.height} />
     );
+  }
+
+  handleResize = () => {
+    this.setState({
+      viewport: {
+        width: document.documentElement.clientWidth,
+        height: document.documentElement.clientHeight,
+      },
+    });
   }
 }
 
