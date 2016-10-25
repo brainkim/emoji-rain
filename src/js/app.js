@@ -1,7 +1,22 @@
 import 'babel-polyfill';
 
-import spliddit from 'spliddit';
 import '../styles/reset.css';
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import spliddit from 'spliddit';
+import emojiData from '../../emoji-data/emoji.json';
+import appleColorEmoji from '../../emoji-data/sheet_apple_20.png';
+
+const appleColorEmojiTx = new PIXI.Texture.fromImage(appleColorEmoji);
+const textures = emojiData.reduce((textures, e) => {
+  if (e.has_img_apple) {
+    const rect = new PIXI.Rectangle(e.sheet_x * 20, e.sheet_y * 20, 20, 20);
+    textures[e.unified] = new PIXI.Texture(appleColorEmojiTx, rect);
+  }
+  return textures;
+}, {});
 
 function toCodePoint(unicodeSurrogates, sep) {
   var
@@ -24,99 +39,177 @@ function toCodePoint(unicodeSurrogates, sep) {
 }
 
 const emojis = spliddit("😀😬😂😃😄😅😆😇😉😊☺️😋😌😍😘😗😙😚😜😝😛😎😏😶😐😑😒😳😞😟😠😡😔😕😣😖😫😩😤😮😱😨😰😯😦😧😢😥😪😓😭😲😷😴💩😈👿👹👺💀👻👽👀").map((e) => {
-  const codePoint = toCodePoint(e);
-  let url;
-  try {
-    url = require('../../apple-color-emoji/' + codePoint + '.png');
-  } catch (err) {
-    console.log(JSON.stringify(e), err);
-  }
-  return url ? PIXI.Texture.fromImage(url) : null;
-}).filter((i) => i);
+  const codePoint = toCodePoint(e).toUpperCase();
+  return textures[toCodePoint(e).toUpperCase()];
+}).filter((t) => t);
 
-const emojiSize = 20;
-const width = 2000;
-const height = 1000;
-
-const renderer = PIXI.autoDetectRenderer(width, height, {
-  transparent: true,
-});
-renderer.view.style.border = '1px solid black';
-renderer.view.style.backgroundColor = 'black';
-
-const stage = new PIXI.Container();
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  document.body.appendChild(renderer.view);
-  requestAnimationFrame(animate);
-});
-
-const rows = height / emojiSize;
-const cols = width / emojiSize;
-
-const drops = [];
-for (let c = 0; c < cols; c++) {
-  drops.push(Math.random() < 0.005 ? Math.floor(Math.random() * rows) : rows + 1);
-}
-
-const sprites = [];
-for (let r = 0; r < rows; r++) {
-  const row = [];
-  sprites.push(row);
-  for (let c = 0; c < cols; c++) {
-    const sprite = new PIXI.Sprite();
-    sprite.width = emojiSize;
-    sprite.height = emojiSize;
-    sprite.anchor.x = 0;
-    sprite.anchor.y = 0;
-    sprite.position.x = c * emojiSize;
-    sprite.position.y = r * emojiSize;
-    sprite.alpha = drops[c] === r ? 1 : 0;
-
-    stage.addChild(sprite);
-    row.push(sprite);
-  }
-}
+// document.addEventListener('DOMContentLoaded', () => {
+//   document.body.appendChild(renderer.view);
+//   requestAnimationFrame(animate);
+// });
 
 let startTime = null;
 let prevStep = null;
-function animate(time) {
-  requestAnimationFrame(animate);
 
-  let elapsed;
-  if (startTime == null) {
-    startTime = time;
-    elapsed = 0;
-  } else {
-    elapsed = time - startTime;
+class EmojiRain extends React.Component {
+  static defaultProps = {
+    width: 2000,
+    height: 1000,
+    emojiSize: 20,
+    emojis: "😀😬😂😃😄😅😆😇😉😊☺️😋😌😍😘😗😙😚😜😝😛😎😏😶😐😑😒😳😞😟😠😡😔😕😣😖😫😩😤😮😱😨😰😯😦😧😢😥😪😓😭😲😷😴💩😈👿👹👺💀👻👽👀",
+    fallProb: 0.005,
+    refreshRate: 80,
+    mutationProb: 0.02,
   }
 
-  const step = Math.floor(elapsed / 80);
-  if (prevStep == null || prevStep != step) {
-    for (let c = 0; c < drops.length; c++) {
-      drops[c] += 1; 
-      if (drops[c] > rows && Math.random() > 0.995) {
-        drops[c] = 0;
+  render() {
+    return <canvas width={this.props.width} height={this.props.height} />;
+  }
+
+  getCarpetDimensions() {
+    return {
+      rows: this.props.height / this.props.emojiSize,
+      cols: this.props.width / this.props.emojiSize,
+    }
+  }
+
+  incrementDrops(prevDrops) {
+    prevDrops = prevDrops || [];
+    const {rows, cols} = this.getCarpetDimensions();
+    const nextDrops = [];
+    for (let c = 0; c < cols; c++) {
+      const prevDrop = prevDrops[c];
+      let nextDrop;
+      if (prevDrop == null) {
+        nextDrop = Math.random() < this.props.fallProb * 10 ? Math.floor(Math.random() * rows) : rows + 1;
+      } else {
+        nextDrop = prevDrops[c] + 1;
+        if (nextDrop > rows && Math.random() < this.props.fallProb) {
+          nextDrop = 0;
+        }
+      }
+      nextDrops.push(nextDrop);
+    }
+    return nextDrops;
+  }
+
+  componentDidMount() {
+    const el = ReactDOM.findDOMNode(this);
+    const renderer = this._renderer = PIXI.autoDetectRenderer(this.props.width, this.props.height, {
+      transparent: true,
+      view: el,
+    });
+    const stage = this._stage = new PIXI.Container();
+
+    const {rows, cols} = this.getCarpetDimensions();
+    const drops = this.incrementDrops();
+
+    const spriteCarpet = this._spriteCarpet = [];
+    for (let r = 0; r < rows; r++) {
+      const row = [];
+      spriteCarpet.push(row);
+      for (let c = 0; c < cols; c++) {
+        const sprite = new PIXI.Sprite();
+        sprite.width = this.props.emojiSize;
+        sprite.height = this.props.emojiSize;
+        sprite.anchor.x = 0;
+        sprite.anchor.y = 0;
+        sprite.position.x = c * this.props.emojiSize;
+        sprite.position.y = r * this.props.emojiSize;
+        sprite.alpha = drops[c] === r ? 1 : 0;
+
+        stage.addChild(sprite);
+        row.push(sprite);
       }
     }
 
-    for (let r = 0; r < rows; r++) {
-      for (let c = 0; c < cols; c++) {
-        const sprite = sprites[r][c];
-        if (drops[c] === r) {
-          sprite.alpha = 1;
-          sprite.texture = emojis[Math.floor(Math.random() * emojis.length)];
-        } else if (sprite.alpha > 0) {
-          sprite.alpha -= 0.05;
-          if (Math.random() < 0.02) {
+    renderer.render(stage);
+
+    this.setState({ drops });
+  }
+  
+  componentDidUpdate(prevProps) {
+    if (prevProps.step !== this.props.step) {
+      const {rows, cols} = this.getCarpetDimensions();
+      const drops = this.incrementDrops(this.state.drops);
+      const spriteCarpet = this._spriteCarpet;
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const sprite = spriteCarpet[r][c];
+          if (drops[c] === r) {
+            sprite.alpha = 1;
             sprite.texture = emojis[Math.floor(Math.random() * emojis.length)];
+          } else if (sprite.alpha > 0) {
+            sprite.alpha -= 0.05;
+            if (Math.random() < this.props.mutationProb) {
+              sprite.texture = emojis[Math.floor(Math.random() * emojis.length)];
+            }
           }
         }
       }
+      this._renderer.render(this._stage);
+      this.setState({ drops });
     }
-    renderer.render(stage);
+  }
+}
+
+class Ticker extends React.Component {
+  static defaultProps = {
+    width: 2000,
+    height: 1000,
+    emojiSize: 20,
+    emojis: "😀😬😂😃😄😅😆😇😉😊☺️😋😌😍😘😗😙😚😜😝😛😎😏😶😐😑😒😳😞😟😠😡😔😕😣😖😫😩😤😮😱😨😰😯😦😧😢😥😪😓😭😲😷😴💩😈👿👹👺💀👻👽👀",
+    fallProb: 0.005,
+    refreshRate: 80,
+    mutationProb: 0.02,
   }
 
-  prevStep = step;
+  state = {
+    start: null,
+    last: null,
+    step: 0,
+  };
+
+  render() {
+    return (
+      <EmojiRain {...this.props} step={this.state.step} />
+    );
+  }
+
+  componentDidMount() {
+    requestAnimationFrame(this.tick);
+  } 
+
+  componentWillUnmount() {
+    cancelAnimationFrame(this.tick);
+  }
+
+  tick = (now) => {
+    requestAnimationFrame(this.tick);
+    if (this.state.last == null) {
+      this.setState({
+        start: now,
+        last: now,
+        step: 0,
+      });
+    } else {
+      const elapsed = now - this.state.last;
+      if (elapsed >= this.props.refreshRate) {
+        this.setState({
+          last: now,
+          step: Math.floor((now - this.state.start) / this.props.refreshRate)
+        });
+      }
+    }
+  }
 }
+
+class App extends React.Component {
+  render() {
+    return (
+      <Ticker width={2000} height={1000} />
+    );
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('app'));

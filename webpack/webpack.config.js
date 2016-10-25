@@ -54,6 +54,7 @@ module.exports = {
         loader: 'url',
         query: {
           name: isProduction ? 'assets/[name].[hash].[ext]' : 'assets/[name].[ext]',
+          limit: 10000,
         }
       },
       {
