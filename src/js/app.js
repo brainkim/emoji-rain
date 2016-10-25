@@ -118,9 +118,22 @@ class EmojiRainCanvas extends React.Component {
     if (prevProps.width !== this.props.width || prevProps.height !== this.props.height) {
       this._renderer.resize(this.props.width, this.props.height);
     }
+    const {rows, cols} = this.getCarpetDimensions();
+    const spriteCarpet = this._spriteCarpet;
+    if (prevProps.emojiSize !== this.props.emojiSize) {
+      for (let r = 0; r < spriteCarpet.length; r++) {
+        const row = spriteCarpet[r];
+        for (let c = 0; c < row.length; c++) {
+          const sprite = row[c];
+          sprite.width = this.props.emojiSize;
+          sprite.height = this.props.emojiSize;
+          sprite.position.x = c * this.props.emojiSize;
+          sprite.position.y = r * this.props.emojiSize;
+          sprite.alpha = 0;
+        }
+      }
+    }
     if (prevProps.tick.step !== this.props.tick.step) {
-      const {rows, cols} = this.getCarpetDimensions();
-      const spriteCarpet = this._spriteCarpet;
       const drops = this.incrementDrops(this.state.drops);
       const emojis = this.getEmojiTextures();
       for (let r = 0; r < rows; r++) {
