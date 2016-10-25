@@ -39,19 +39,13 @@ function toCodePoint(unicodeSurrogates, sep) {
   return r.join(sep || '-');
 }
 
-class EmojiRain extends React.Component {
-  static defaultProps = {
-    width: 2000,
-    height: 1000,
-    emojiSize: 20,
-    emojis: "😀😬😂😃😄😅😆😇😉😊☺️😋😌😍😘😗😙😚😜😝😛😎😏😶😐😑😒😳😞😟😠😡😔😕😣😖😫😩😤😮😱😨😰😯😦😧😢😥😪😓😭😲😷😴💩😈👿👹👺💀👻👽👀",
-    fallProb: 0.005,
-    refreshRate: 80,
-    mutationProb: 0.02,
-  }
+class EmojiRainCanvas extends React.Component {
+  state = { drops: null }
 
   render() {
-    return <canvas />;
+    return (
+      <canvas width={this.props.width} height={this.props.height} />
+    );
   }
 
   getEmojiTextures() {
@@ -60,11 +54,10 @@ class EmojiRain extends React.Component {
     }).filter(t => t);
   }
 
-  getCarpetDimensions(props) {
-    props = props || this.props;
+  getCarpetDimensions() {
     return {
-      rows: Math.ceil(props.height / props.emojiSize),
-      cols: Math.ceil(props.width / props.emojiSize),
+      rows: Math.ceil(this.props.height / this.props.emojiSize),
+      cols: Math.ceil(this.props.width / this.props.emojiSize),
     }
   }
 
@@ -120,12 +113,12 @@ class EmojiRain extends React.Component {
 
     this.setState({ drops });
   }
-  
+
   componentDidUpdate(prevProps) {
     if (prevProps.width !== this.props.width || prevProps.height !== this.props.height) {
       this._renderer.resize(this.props.width, this.props.height);
     }
-    if (prevProps.step !== this.props.step) {
+    if (prevProps.tick.step !== this.props.tick.step) {
       const {rows, cols} = this.getCarpetDimensions();
       const spriteCarpet = this._spriteCarpet;
       const drops = this.incrementDrops(this.state.drops);
@@ -165,16 +158,27 @@ class EmojiRain extends React.Component {
   }
 }
 
-class Ticker extends React.Component {
+class EmojiRain extends React.Component {
   static defaultProps = {
     width: 2000,
     height: 1000,
     emojiSize: 20,
+    emojis: "😀😬😂😃😄😅😆😇😉😊☺️😋😌😍😘😗😙😚😜😝😛😎😏😶😐😑😒😳😞😟😠😡😔😕😣😖😫😩😤😮😱😨😰😯😦😧😢😥😪😓😭😲😷😴💩😈👿👹👺💀👻👽👀",
     fallProb: 0.005,
+    mutationProb: 0.05,
     refreshRate: 80,
-    mutationProb: 0.02,
   }
 
+  render() {
+    return (
+      <Ticker refreshRate={this.props.refreshRate}>
+        <EmojiRainCanvas {...this.props} />
+      </Ticker>
+    );
+  }
+}
+
+class Ticker extends React.Component {
   state = {
     start: null,
     last: null,
@@ -182,9 +186,8 @@ class Ticker extends React.Component {
   };
 
   render() {
-    return (
-      <EmojiRain {...this.props} step={this.state.step} />
-    );
+    const child = React.Children.only(this.props.children)
+    return React.cloneElement(child, {...child.props, tick: this.state});
   }
 
   componentDidMount() {
@@ -217,7 +220,7 @@ class Ticker extends React.Component {
 
 class App extends React.Component {
   state = {
-    viewport: { width: 0, height: 0 }
+    viewport: { width: 0, height: 0 },
   }
 
   componentDidMount() {
@@ -227,7 +230,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Ticker width={this.state.viewport.width} height={this.state.viewport.height} />
+      <EmojiRain width={this.state.viewport.width} height={this.state.viewport.height} />
     );
   }
 
