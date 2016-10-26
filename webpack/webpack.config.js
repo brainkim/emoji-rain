@@ -32,9 +32,6 @@ module.exports = {
       ],
   },
   module: {
-    noParse: [
-      /node_modules\/pixi.js\/bin\/pixi.min.js/,
-    ],
     loaders: [
       {
         test: /\.js$/,
@@ -50,40 +47,11 @@ module.exports = {
         loader: extractTextPlugin.extract('style-loader', ['css-loader', 'postcss-loader'])
       },
       {
-        test: /\.(png|jpe?g|gif)$/,
-        loader: 'url',
-        query: {
-          name: isProduction ? 'assets/[name].[hash].[ext]' : 'assets/[name].[ext]',
-          limit: 10000,
-        }
-      },
-      {
-        test: /\.(svg|otf|eot|woff2?|ttf)$/,
+        test: /\.(png|jpe?g|gif|svg)$/,
         loader: 'file',
         query: {
           name: isProduction ? 'assets/[name].[hash].[ext]' : 'assets/[name].[ext]',
         }
-      },
-      // react-fa
-      {
-        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url-loader',
-        query: {
-          limit: 10000,
-          mimetype: 'application/font-woff',
-          name: isProduction ? 'assets/[name].[hash].[ext]' : 'assets/[name].[ext]',
-        },
-      },
-      {
-        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file-loader',
-        query: {
-          name: isProduction ? 'assets/[name].[hash].[ext]' : 'assets/[name].[ext]',
-        },
-      },
-      {
-        test: /\.md$/,
-        loader: 'raw-loader',
       },
     ]
   },

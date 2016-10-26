@@ -5,39 +5,11 @@ import '../styles/reset.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import spliddit from 'spliddit';
-
 import appleColorEmoji from '../spritesheets/apple-color-emoji-20.json';
 import appleColorEmojiSrc from '../spritesheets/apple-color-emoji-20.png';
 
-const appleColorEmojiTx = new PIXI.Texture.fromImage(appleColorEmojiSrc);
-const textures = Object.keys(appleColorEmoji.frames).reduce((textures, filename) => {
-  const codePoint = filename.replace(/\.png$/, '');
-  const frame = appleColorEmoji.frames[filename];
-  const rect = new PIXI.Rectangle(frame.frame.x, frame.frame.y, frame.frame.w, frame.frame.h);
-  textures[codePoint] = new PIXI.Texture(appleColorEmojiTx, rect);
-  return textures;
-}, {});
-
-function toCodePoint(unicodeSurrogates, sep) {
-  var
-    r = [],
-    c = 0,
-    p = 0,
-    i = 0;
-  while (i < unicodeSurrogates.length) {
-    c = unicodeSurrogates.charCodeAt(i++);
-    if (p) {
-      r.push((0x10000 + ((p - 0xD800) << 10) + (c - 0xDC00)).toString(16));
-      p = 0;
-    } else if (0xD800 <= c && c <= 0xDBFF) {
-      p = c;
-    } else {
-      r.push(c.toString(16));
-    }
-  }
-  return r.join(sep || '-');
-}
+import twemoji from 'twemoji';
+import runes from 'runes';
 
 class EmojiRainCanvas extends React.Component {
   state = { drops: null }
@@ -49,8 +21,16 @@ class EmojiRainCanvas extends React.Component {
   }
 
   getEmojiTextures() {
-    return spliddit(this.props.emojis).map((e) => {
-      return textures[toCodePoint(e)];
+    return runes(this.props.emojis).map((e) => {
+      const codePoint = twemoji.convert.toCodePoint(e);
+      let src;
+      try {
+        // src = require('../emoji/apple-color-emoji/1f004.png');
+        src = require('../emoji/apple-color-emoji/' + codePoint + '.png');
+        return PIXI.Texture.fromImage(src);
+      } catch (err) {
+        console.log(err);
+      }
     }).filter(t => t);
   }
 
@@ -69,7 +49,7 @@ class EmojiRainCanvas extends React.Component {
       const prevDrop = prevDrops[c];
       let nextDrop;
       if (prevDrop == null) {
-        nextDrop = Math.random() < this.props.fallProb * 10 ? Math.floor(Math.random() * rows) : rows + 1;
+        nextDrop = Math.random() < this.props.fallProb * 10 ? Math.floor(Math.random() * rows) : Infinity;
       } else {
         nextDrop = prevDrops[c] + 1;
         if (nextDrop > rows && Math.random() < this.props.fallProb) {
@@ -83,6 +63,7 @@ class EmojiRainCanvas extends React.Component {
 
   componentDidMount() {
     const el = ReactDOM.findDOMNode(this);
+
     const renderer = this._renderer = PIXI.autoDetectRenderer(this.props.width, this.props.height, {
       transparent: true,
       view: el,
@@ -91,7 +72,6 @@ class EmojiRainCanvas extends React.Component {
 
     const {rows, cols} = this.getCarpetDimensions();
     const drops = this.incrementDrops();
-
     const spriteCarpet = this._spriteCarpet = [];
     for (let r = 0; r < rows; r++) {
       const row = [];
@@ -114,12 +94,20 @@ class EmojiRainCanvas extends React.Component {
     this.setState({ drops });
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.tick.step !== nextProps.tick.step) {
+      this.setState({ drops: this.incrementDrops(this.state.drops) });
+    }
+  }
+
   componentDidUpdate(prevProps) {
     if (prevProps.width !== this.props.width || prevProps.height !== this.props.height) {
       this._renderer.resize(this.props.width, this.props.height);
     }
+
     const {rows, cols} = this.getCarpetDimensions();
     const spriteCarpet = this._spriteCarpet;
+
     if (prevProps.emojiSize !== this.props.emojiSize) {
       for (let r = 0; r < spriteCarpet.length; r++) {
         const row = spriteCarpet[r];
@@ -129,12 +117,11 @@ class EmojiRainCanvas extends React.Component {
           sprite.height = this.props.emojiSize;
           sprite.position.x = c * this.props.emojiSize;
           sprite.position.y = r * this.props.emojiSize;
-          sprite.alpha = 0;
         }
       }
     }
+
     if (prevProps.tick.step !== this.props.tick.step) {
-      const drops = this.incrementDrops(this.state.drops);
       const emojis = this.getEmojiTextures();
       for (let r = 0; r < rows; r++) {
         let row = spriteCarpet[r];
@@ -150,23 +137,22 @@ class EmojiRainCanvas extends React.Component {
             sprite.height = this.props.emojiSize;
             sprite.position.x = c * this.props.emojiSize;
             sprite.position.y = r * this.props.emojiSize;
-            sprite.alpha = drops[c] === r ? 1 : 0;
+            sprite.alpha = this.state.drops[c] === r ? 1 : 0;
             this._stage.addChild(sprite);
             row.push(sprite);
           }
-          if (drops[c] === r) {
+          if (emojis.length > 0 && this.state.drops[c] === r) {
             sprite.alpha = 1;
             sprite.texture = emojis[Math.floor(Math.random() * emojis.length)];
           } else if (sprite.alpha > 0) {
             sprite.alpha -= 0.05;
-            if (Math.random() < this.props.mutationProb) {
+            if (emojis.length > 0 && Math.random() < this.props.mutationProb) {
               sprite.texture = emojis[Math.floor(Math.random() * emojis.length)];
             }
           }
         }
       }
       this._renderer.render(this._stage);
-      this.setState({ drops });
     }
   }
 }
@@ -231,20 +217,70 @@ class Ticker extends React.Component {
   }
 }
 
+class Slider extends React.Component {
+  render() {
+    return <div/>
+  }
+}
+
+class EmojiForm extends React.Component {
+  state = {
+    emojis: "😀😬😂😃😄😅😆😇😉😊☺️😋😌😍😘😗😙😚😜😝😛😎😏😶😐😑😒😳😞😟😠😡😔😕😣😖😫😩😤😮😱😨😰😯😦😧😢😥😪😓😭😲😷😴💩😈👿👹👺💀👻👽👀",
+    emojiSize: 20,
+    fallProb: 0.005,
+    mutationProb: 0.005,
+    refreshRate: 80,
+  }
+
+  render() {
+    return (
+      <div>
+      </div>
+    );
+  }
+}
+
 class App extends React.Component {
   state = {
     viewport: { width: 0, height: 0 },
+    emojis: "😀😬",
+    emojiSize: 20,
+    fallProb: 0.005,
+    mutationProb: 0.005,
+    refreshRate: 80,
+  }
+
+  render() {
+    const inputStyle = {
+      display: 'block',
+      width: 500,
+    };
+    return (
+      <div>
+        <div style={{ position: 'absolute', top: 0, left: 0 }}>
+          <EmojiRain
+            {...this.state.viewport}
+            emojis={this.state.emojis}
+            emojiSize={this.state.emojiSize}
+            fallProb={this.state.fallProb}
+            mutationProb={this.state.mutationProb}
+            refreshRate={this.state.refreshRate}
+            />
+        </div>
+        <div style={{ position: 'absolute', top: 0, left: 0, fontSize: 30}}>
+          <input style={inputStyle} style={{font: 'inherit'}} type="text" value={this.state.emojis} onChange={ev => this.setState({ emojis: ev.target.value })}/>
+          <input style={inputStyle} type="range" min={0} max={0.01} step={0.0005} value={this.state.fallProb} onChange={ev => this.setState({ fallProb: ev.target.value }) } />
+          <input style={inputStyle} type="range" min={0} max={0.05} step={0.001} value={this.state.mutationProb} onChange={ev => this.setState({ mutationProb: ev.target.value })} /> 
+          <input style={inputStyle} type="range" min={20} max={200} value={this.state.refreshRate} onChange={ev => this.setState({ refreshRate: ev.target.value })} />
+          <input style={inputStyle} type="range" min={20} max={72} value={this.state.emojiSize} onChange={ev => this.setState({ emojiSize: ev.target.value })} />
+        </div>
+      </div>
+    );
   }
 
   componentDidMount() {
     this.handleResize();
     window.addEventListener('resize', this.handleResize);
-  }
-
-  render() {
-    return (
-      <EmojiRain width={this.state.viewport.width} height={this.state.viewport.height} />
-    );
   }
 
   handleResize = () => {
