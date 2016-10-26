@@ -25,8 +25,8 @@ class EmojiRainCanvas extends React.Component {
       const codePoint = twemoji.convert.toCodePoint(e);
       let src;
       try {
-        // src = require('../emoji/apple-color-emoji/1f004.png');
         src = require('../emoji/apple-color-emoji/' + codePoint + '.png');
+        // src = require('../emoji/twitter/' + codePoint + '.png');
         return PIXI.Texture.fromImage(src);
       } catch (err) {
         console.log(err);
