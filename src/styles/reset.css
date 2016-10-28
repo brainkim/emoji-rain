@@ -15,3 +15,7 @@ body {
   padding: 0;
   box-sizing: inherit;
 }
+
+.emoji:before {
+  content: "\0020";
+}

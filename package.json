@@ -15,11 +15,14 @@
     "test": "echo \"hahahaa you fucking goof there are no tests psych 😘 love\""
   },
   "dependencies": {
+    "draft-js": "0.9.1",
+    "draft-js-plugins-editor": "2.0.0-beta1",
+    "draft-js-single-line-plugin": "0.0.1",
+    "emoji-regex": "6.0.0",
     "pixi.js": "4.1.0",
     "react": "15.3.2",
     "react-dom": "15.3.2",
     "runes": "0.3.0",
-    "spliddit": "2.1.1",
     "twemoji": "2.2.0"
   },
   "devDependencies": {

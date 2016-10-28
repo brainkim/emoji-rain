@@ -5,11 +5,9 @@ import '../styles/reset.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import appleColorEmoji from '../spritesheets/apple-color-emoji-20.json';
-import appleColorEmojiSrc from '../spritesheets/apple-color-emoji-20.png';
-
-import twemoji from 'twemoji';
+import emojiRegex from 'emoji-regex';
 import runes from 'runes';
+import twemoji from 'twemoji';
 
 class EmojiRainCanvas extends React.Component {
   state = { drops: null }
@@ -27,7 +25,7 @@ class EmojiRainCanvas extends React.Component {
       try {
         src = require('../emoji/apple-color-emoji/' + codePoint + '.png');
         // src = require('../emoji/twitter/' + codePoint + '.png');
-        return PIXI.Texture.fromImage(src);
+        return PIXI.Texture.fromImage(src, true, PIXI.SCALE_MODES.LINEAR);
       } catch (err) {
         console.log(err);
       }
@@ -223,22 +221,88 @@ class Slider extends React.Component {
   }
 }
 
-class EmojiForm extends React.Component {
+import Editor from 'draft-js-plugins-editor';
+import { EditorState, BlockMapBuilder, ContentState, CompositeDecorator } from 'draft-js';
+
+function emojiStrategy(contentBlock, callback) {
+  const text = contentBlock.getText();
+  const re = emojiRegex();
+  let match, start;
+  while ((match = re.exec(text)) !== null) {
+    start = match.index;
+    callback(start, start + match[0].length);
+  }
+}
+
+class Emoji extends React.Component {
+  render() {
+    const { decoratedText } = this.props;
+    const codePoint = twemoji.convert.toCodePoint(decoratedText);
+    let src;
+    src = require('../emoji/apple-color-emoji/' + codePoint + '.png');
+    return (
+      <span className="emoji" style={{ backgroundPosition: 'center', backgroundSize: 'contain', backgroundRepeat: 'no-repeat', display: 'inline-block', backgroundImage: `url(${src})`}}>
+        <span style={{ opacity: 0 }}>{this.props.children}</span>
+      </span>
+    );
+  }
+}
+
+const decorators = [
+  {
+    strategy: emojiStrategy,
+    component: Emoji,
+  },
+];
+
+import createSingleLinePlugin from 'draft-js-single-line-plugin';
+const singleLinePlugin = createSingleLinePlugin();
+
+class EmojiEditor extends React.Component {
   state = {
-    emojis: "😀😬😂😃😄😅😆😇😉😊☺️😋😌😍😘😗😙😚😜😝😛😎😏😶😐😑😒😳😞😟😠😡😔😕😣😖😫😩😤😮😱😨😰😯😦😧😢😥😪😓😭😲😷😴💩😈👿👹👺💀👻👽👀",
-    emojiSize: 20,
-    fallProb: 0.005,
-    mutationProb: 0.005,
-    refreshRate: 80,
+    editorState: EditorState.createEmpty(),
+  }
+
+  onChange = (editorState) => {
+    this.setState({ editorState });
+  }
+
+  handleBeforeInput = (chars) => {
+    console.log(chars);
+    return 'not-handled';
   }
 
   render() {
     return (
-      <div>
+      <div style={{ color: 'white' }}>
+        <Editor
+          plugins={[singleLinePlugin]}
+          decorators={decorators}
+          editorState={this.state.editorState}
+          onChange={this.onChange}
+          handleBeforeInput={this.handleBeforeInput}
+          />
       </div>
     );
   }
 }
+
+// class EmojiForm extends React.Component {
+//   state = {
+//     emojis: "😀😬😂😃😄😅😆😇😉😊☺️😋😌😍😘😗😙😚😜😝😛😎😏😶😐😑😒😳😞😟😠😡😔😕😣😖😫😩😤😮😱😨😰😯😦😧😢😥😪😓😭😲😷😴💩😈👿👹👺💀👻👽👀",
+//     emojiSize: 20,
+//     fallProb: 0.005,
+//     mutationProb: 0.005,
+//     refreshRate: 80,
+//   }
+// 
+//   render() {
+//     return (
+//       <div>
+//       </div>
+//     );
+//   }
+// }
 
 class App extends React.Component {
   state = {
@@ -268,7 +332,8 @@ class App extends React.Component {
             />
         </div>
         <div style={{ position: 'absolute', top: 0, left: 0, fontSize: 30}}>
-          <input style={inputStyle} style={{font: 'inherit'}} type="text" value={this.state.emojis} onChange={ev => this.setState({ emojis: ev.target.value })}/>
+          <input style={{...inputStyle, font: 'inherit'}} type="text" value={this.state.emojis} onChange={ev => this.setState({ emojis: ev.target.value })}/>
+          <EmojiEditor />
           <input style={inputStyle} type="range" min={0} max={0.01} step={0.0005} value={this.state.fallProb} onChange={ev => this.setState({ fallProb: ev.target.value }) } />
           <input style={inputStyle} type="range" min={0} max={0.05} step={0.001} value={this.state.mutationProb} onChange={ev => this.setState({ mutationProb: ev.target.value })} /> 
           <input style={inputStyle} type="range" min={20} max={200} value={this.state.refreshRate} onChange={ev => this.setState({ refreshRate: ev.target.value })} />
