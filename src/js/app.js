@@ -1,9 +1,12 @@
 import 'babel-polyfill';
 
-import '../styles/reset.css';
+import '../styles/main.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import { createElement } from 'glamor/react';
+/* @jsx createElement */
 
 import emojis from '../../emojis/emojis.json';
 
@@ -242,32 +245,43 @@ class EmojiSelector extends React.Component {
 
   render() {
     return (
-      <div style={{
+      <div css={{
         width: 421,
-        backgroundColor: 'white',
+        backgroundColor: '#fff',
         maxHeight: 400,
         overflowX: 'hidden',
         overflowY: 'scroll',
       }}>
         {emojis.filter((e) => e.hasApple).map((e) => {
-          const src = process.publicPath + 'assets/emojis/apple/24x24/' + e.codePoint + '.png';
+          const src = process.publicPath + 'assets/emojis/apple/48x48/' + e.codePoint + '.png';
+          const selected = this.props.selected.find(e1 => e1.text === e.text);
           return (
-            <img
+            <div
               key={e.text}
-              src={src}
-              style={{
+              css={{
                 width: 50,
                 height: 50,
-                userSelect: 'none',
-                opacity: this.props.selected.find(e1 => e1.text === e.text) ? 1 : 0.2,
-                cursor: 'pointer',
-              }}
-              onClick={this.handleClick}
-              onKeyPress={this.handleKeyPress}
-              tabIndex="0"
-              alt={e.text}
-              data-emoji={JSON.stringify(e)}
-              />
+                backgroundColor: selected ? '#bbb' : 'transparent',
+                display: 'inline-block',
+                verticalAlign: 'top',
+              }}>
+              <img
+                src={src}
+                css={{
+                  width: 50,
+                  height: 50,
+                  userSelect: 'none',
+                  opacity: selected ? 1 : 0.6,
+                  cursor: 'pointer',
+                  outline: 0,
+                }}
+                onClick={this.handleClick}
+                onKeyPress={this.handleKeyPress}
+                tabIndex="0"
+                alt={e.text}
+                data-emoji={JSON.stringify(e)}
+                />
+            </div>
           );
         })}
       </div>
@@ -293,7 +307,7 @@ class App extends React.Component {
 
     return (
       <div>
-        <div style={{ position: 'absolute', top: 0, left: 0 }}>
+        <div css={{ position: 'absolute', top: 0, left: 0 }}>
           <EmojiRain
             {...this.state.viewport}
             emojis={this.state.selectedEmojis}
@@ -303,14 +317,14 @@ class App extends React.Component {
             refreshRate={this.state.refreshRate}
             />
         </div>
-        <div style={{ position: 'absolute', top: 0, left: 0, fontSize: 30}}>
+        <div css={{ position: 'absolute', top: 0, left: 0, fontSize: 30}}>
           <EmojiSelector selected={this.state.selectedEmojis} onSelect={(selected) => {
             this.setState({ selectedEmojis: selected });
           }} />
-          <input style={inputStyle} type="range" min={0} max={0.01} step={0.0005} value={this.state.fallProb} onChange={ev => this.setState({ fallProb: ev.target.value }) } />
-          <input style={inputStyle} type="range" min={0} max={0.05} step={0.001} value={this.state.mutationProb} onChange={ev => this.setState({ mutationProb: ev.target.value })} /> 
-          <input style={inputStyle} type="range" min={20} max={200} value={this.state.refreshRate} onChange={ev => this.setState({ refreshRate: ev.target.value })} />
-          <input style={inputStyle} type="range" min={20} max={72} value={this.state.emojiSize} onChange={ev => this.setState({ emojiSize: ev.target.value })} />
+          <input css={inputStyle} type="range" min={0} max={0.01} step={0.0005} value={this.state.fallProb} onChange={ev => this.setState({ fallProb: ev.target.value }) } />
+          <input css={inputStyle} type="range" min={0} max={0.05} step={0.001} value={this.state.mutationProb} onChange={ev => this.setState({ mutationProb: ev.target.value })} /> 
+          <input css={inputStyle} type="range" min={20} max={200} value={this.state.refreshRate} onChange={ev => this.setState({ refreshRate: ev.target.value })} />
+          <input css={inputStyle} type="range" min={20} max={72} value={this.state.emojiSize} onChange={ev => this.setState({ emojiSize: ev.target.value })} />
         </div>
       </div>
     );
