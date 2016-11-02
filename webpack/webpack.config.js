@@ -20,6 +20,10 @@ const extractTextPlugin = new ExtractTextWebpackPlugin( 'assets/[name]-[contenth
   disable: !isProduction
 });
 
+// NOTE(brian): change this to the path you use to host it b/c webpack is horrible.
+const publicPath = '/';
+// const publicPath = 'http://dracula2000.s3.amazonaws.com/demos/bodycams/';
+
 module.exports = {
   context: path.resolve(__dirname, '../'),
   devtool: '#source-map',
@@ -58,13 +62,11 @@ module.exports = {
 
   output: isProduction ? {
     path: path.resolve(__dirname, '../dist'),
-    // NOTE(brian): change this to the path you use to host it b/c webpack is horrible.
-    publicPath: '/',
-    // publicPath: 'http://dracula2000.s3.amazonaws.com/demos/bodycams/',
+    publicPath,
     filename: 'assets/[name].[chunkhash].js'
   } : {
     path: path.resolve(__dirname, '../build'),
-    publicPath: '/',
+    publicPath,
     filename: 'assets/[name].js'
   },
 
@@ -72,13 +74,20 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')
-      }
+      },
+      'process.publicPath': JSON.stringify(publicPath),
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin(),
     htmlPlugin,
     extractTextPlugin,
   ] : [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('development')
+      },
+      'process.publicPath': JSON.stringify(publicPath),
+    }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),

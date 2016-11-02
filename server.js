@@ -16,19 +16,18 @@ compiler.apply(new DashboardPlugin(dashboard.setData));
 
 const app = express();
 
-// Inject webpack dev and hot reload middleware if in development.
-if (process.env.NODE_ENV === 'development') {
-  app.use(webpackDev(compiler, {
-    quiet: true,
-    publicPath: webpackConfig.output.publicPath
-  }));
+app.use('/assets/emojis', express.static(path.join(__dirname, 'emojis')));
 
-  app.use(webpackHot(compiler, {
-    log: () => {},
-    path: '/__poop',
-    heartbeat: 10 * 1000
-  }));
-}
+app.use(webpackDev(compiler, {
+  quiet: true,
+  publicPath: webpackConfig.output.publicPath
+}));
+
+app.use(webpackHot(compiler, {
+  log: () => {},
+  path: '/__poop',
+  heartbeat: 10 * 1000
+}));
 
 var server = http.createServer(app);
 server.listen(process.env.PORT || 1337, () => {
