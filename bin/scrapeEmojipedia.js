@@ -9,7 +9,7 @@ import sharp from 'sharp';
 import async from 'async';
 
 const version = 'ios-10.0';
-mkdirp(`./emojis/apple/${version}/`);
+mkdirp(`./emojis/apple/${version}/source`);
 let data = '';
 http.request({
   hostname: 'emojipedia.org',
@@ -68,7 +68,7 @@ function fetchEmojiFromDetailPage(data, callback) {
 
 function downloadImage(data, callback) {
   const codePoint = twemoji.convert.toCodePoint(data.emoji);
-  const out = fs.createWriteStream(`emojis/apple/${version}/${codePoint}.png`);
+  const out = fs.createWriteStream(`emojis/apple/${version}/source/${codePoint}.png`);
   http.get(data.imageUrl, (res) => {
     console.log(data.emoji, codePoint, res.statusCode);
     if (res.statusCode === 200) {

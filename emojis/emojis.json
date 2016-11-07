@@ -21,7 +21,7 @@
     "codePoint": "1f923",
     "text": "🤣",
     "name": "rolling on the floor laughing",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f603",
@@ -237,7 +237,7 @@
     "codePoint": "1f924",
     "text": "🤤",
     "name": "drooling face",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f612",
@@ -405,19 +405,19 @@
     "codePoint": "1f920",
     "text": "🤠",
     "name": "cowboy hat face",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f921",
     "text": "🤡",
     "name": "clown face",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f925",
     "text": "🤥",
     "name": "lying face",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f637",
@@ -441,13 +441,13 @@
     "codePoint": "1f922",
     "text": "🤢",
     "name": "nauseated face",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f927",
     "text": "🤧",
     "name": "sneezing face",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f608",
@@ -879,217 +879,217 @@
     "codePoint": "1f468-200d-2695-fe0f",
     "text": "👨‍⚕️",
     "name": "man health worker",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fb-200d-2695-fe0f",
     "text": "👨🏻‍⚕️",
     "name": "man health worker: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fc-200d-2695-fe0f",
     "text": "👨🏼‍⚕️",
     "name": "man health worker: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fd-200d-2695-fe0f",
     "text": "👨🏽‍⚕️",
     "name": "man health worker: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fe-200d-2695-fe0f",
     "text": "👨🏾‍⚕️",
     "name": "man health worker: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3ff-200d-2695-fe0f",
     "text": "👨🏿‍⚕️",
     "name": "man health worker: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-200d-2695-fe0f",
     "text": "👩‍⚕️",
     "name": "woman health worker",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fb-200d-2695-fe0f",
     "text": "👩🏻‍⚕️",
     "name": "woman health worker: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fc-200d-2695-fe0f",
     "text": "👩🏼‍⚕️",
     "name": "woman health worker: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fd-200d-2695-fe0f",
     "text": "👩🏽‍⚕️",
     "name": "woman health worker: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fe-200d-2695-fe0f",
     "text": "👩🏾‍⚕️",
     "name": "woman health worker: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3ff-200d-2695-fe0f",
     "text": "👩🏿‍⚕️",
     "name": "woman health worker: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-200d-1f393",
     "text": "👨‍🎓",
     "name": "man student",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fb-200d-1f393",
     "text": "👨🏻‍🎓",
     "name": "man student: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fc-200d-1f393",
     "text": "👨🏼‍🎓",
     "name": "man student: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fd-200d-1f393",
     "text": "👨🏽‍🎓",
     "name": "man student: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fe-200d-1f393",
     "text": "👨🏾‍🎓",
     "name": "man student: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3ff-200d-1f393",
     "text": "👨🏿‍🎓",
     "name": "man student: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-200d-1f393",
     "text": "👩‍🎓",
     "name": "woman student",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fb-200d-1f393",
     "text": "👩🏻‍🎓",
     "name": "woman student: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fc-200d-1f393",
     "text": "👩🏼‍🎓",
     "name": "woman student: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fd-200d-1f393",
     "text": "👩🏽‍🎓",
     "name": "woman student: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fe-200d-1f393",
     "text": "👩🏾‍🎓",
     "name": "woman student: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3ff-200d-1f393",
     "text": "👩🏿‍🎓",
     "name": "woman student: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-200d-1f3eb",
     "text": "👨‍🏫",
     "name": "man teacher",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fb-200d-1f3eb",
     "text": "👨🏻‍🏫",
     "name": "man teacher: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fc-200d-1f3eb",
     "text": "👨🏼‍🏫",
     "name": "man teacher: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fd-200d-1f3eb",
     "text": "👨🏽‍🏫",
     "name": "man teacher: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fe-200d-1f3eb",
     "text": "👨🏾‍🏫",
     "name": "man teacher: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3ff-200d-1f3eb",
     "text": "👨🏿‍🏫",
     "name": "man teacher: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-200d-1f3eb",
     "text": "👩‍🏫",
     "name": "woman teacher",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fb-200d-1f3eb",
     "text": "👩🏻‍🏫",
     "name": "woman teacher: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fc-200d-1f3eb",
     "text": "👩🏼‍🏫",
     "name": "woman teacher: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fd-200d-1f3eb",
     "text": "👩🏽‍🏫",
     "name": "woman teacher: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fe-200d-1f3eb",
     "text": "👩🏾‍🏫",
     "name": "woman teacher: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3ff-200d-1f3eb",
     "text": "👩🏿‍🏫",
     "name": "woman teacher: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-200d-2696",
@@ -1101,31 +1101,31 @@
     "codePoint": "1f468-1f3fb-200d-2696",
     "text": "👨🏻‍⚖",
     "name": "man judge: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fc-200d-2696",
     "text": "👨🏼‍⚖",
     "name": "man judge: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fd-200d-2696",
     "text": "👨🏽‍⚖",
     "name": "man judge: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fe-200d-2696",
     "text": "👨🏾‍⚖",
     "name": "man judge: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3ff-200d-2696",
     "text": "👨🏿‍⚖",
     "name": "man judge: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-200d-2696",
@@ -1137,607 +1137,607 @@
     "codePoint": "1f469-1f3fb-200d-2696",
     "text": "👩🏻‍⚖",
     "name": "woman judge: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fc-200d-2696",
     "text": "👩🏼‍⚖",
     "name": "woman judge: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fd-200d-2696",
     "text": "👩🏽‍⚖",
     "name": "woman judge: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fe-200d-2696",
     "text": "👩🏾‍⚖",
     "name": "woman judge: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3ff-200d-2696",
     "text": "👩🏿‍⚖",
     "name": "woman judge: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-200d-1f33e",
     "text": "👨‍🌾",
     "name": "man farmer",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fb-200d-1f33e",
     "text": "👨🏻‍🌾",
     "name": "man farmer: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fc-200d-1f33e",
     "text": "👨🏼‍🌾",
     "name": "man farmer: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fd-200d-1f33e",
     "text": "👨🏽‍🌾",
     "name": "man farmer: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fe-200d-1f33e",
     "text": "👨🏾‍🌾",
     "name": "man farmer: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3ff-200d-1f33e",
     "text": "👨🏿‍🌾",
     "name": "man farmer: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-200d-1f33e",
     "text": "👩‍🌾",
     "name": "woman farmer",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fb-200d-1f33e",
     "text": "👩🏻‍🌾",
     "name": "woman farmer: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fc-200d-1f33e",
     "text": "👩🏼‍🌾",
     "name": "woman farmer: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fd-200d-1f33e",
     "text": "👩🏽‍🌾",
     "name": "woman farmer: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fe-200d-1f33e",
     "text": "👩🏾‍🌾",
     "name": "woman farmer: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3ff-200d-1f33e",
     "text": "👩🏿‍🌾",
     "name": "woman farmer: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-200d-1f373",
     "text": "👨‍🍳",
     "name": "man cook",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fb-200d-1f373",
     "text": "👨🏻‍🍳",
     "name": "man cook: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fc-200d-1f373",
     "text": "👨🏼‍🍳",
     "name": "man cook: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fd-200d-1f373",
     "text": "👨🏽‍🍳",
     "name": "man cook: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fe-200d-1f373",
     "text": "👨🏾‍🍳",
     "name": "man cook: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3ff-200d-1f373",
     "text": "👨🏿‍🍳",
     "name": "man cook: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-200d-1f373",
     "text": "👩‍🍳",
     "name": "woman cook",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fb-200d-1f373",
     "text": "👩🏻‍🍳",
     "name": "woman cook: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fc-200d-1f373",
     "text": "👩🏼‍🍳",
     "name": "woman cook: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fd-200d-1f373",
     "text": "👩🏽‍🍳",
     "name": "woman cook: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fe-200d-1f373",
     "text": "👩🏾‍🍳",
     "name": "woman cook: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3ff-200d-1f373",
     "text": "👩🏿‍🍳",
     "name": "woman cook: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-200d-1f527",
     "text": "👨‍🔧",
     "name": "man mechanic",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fb-200d-1f527",
     "text": "👨🏻‍🔧",
     "name": "man mechanic: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fc-200d-1f527",
     "text": "👨🏼‍🔧",
     "name": "man mechanic: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fd-200d-1f527",
     "text": "👨🏽‍🔧",
     "name": "man mechanic: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fe-200d-1f527",
     "text": "👨🏾‍🔧",
     "name": "man mechanic: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3ff-200d-1f527",
     "text": "👨🏿‍🔧",
     "name": "man mechanic: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-200d-1f527",
     "text": "👩‍🔧",
     "name": "woman mechanic",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fb-200d-1f527",
     "text": "👩🏻‍🔧",
     "name": "woman mechanic: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fc-200d-1f527",
     "text": "👩🏼‍🔧",
     "name": "woman mechanic: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fd-200d-1f527",
     "text": "👩🏽‍🔧",
     "name": "woman mechanic: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fe-200d-1f527",
     "text": "👩🏾‍🔧",
     "name": "woman mechanic: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3ff-200d-1f527",
     "text": "👩🏿‍🔧",
     "name": "woman mechanic: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-200d-1f3ed",
     "text": "👨‍🏭",
     "name": "man factory worker",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fb-200d-1f3ed",
     "text": "👨🏻‍🏭",
     "name": "man factory worker: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fc-200d-1f3ed",
     "text": "👨🏼‍🏭",
     "name": "man factory worker: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fd-200d-1f3ed",
     "text": "👨🏽‍🏭",
     "name": "man factory worker: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fe-200d-1f3ed",
     "text": "👨🏾‍🏭",
     "name": "man factory worker: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3ff-200d-1f3ed",
     "text": "👨🏿‍🏭",
     "name": "man factory worker: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-200d-1f3ed",
     "text": "👩‍🏭",
     "name": "woman factory worker",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fb-200d-1f3ed",
     "text": "👩🏻‍🏭",
     "name": "woman factory worker: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fc-200d-1f3ed",
     "text": "👩🏼‍🏭",
     "name": "woman factory worker: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fd-200d-1f3ed",
     "text": "👩🏽‍🏭",
     "name": "woman factory worker: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fe-200d-1f3ed",
     "text": "👩🏾‍🏭",
     "name": "woman factory worker: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3ff-200d-1f3ed",
     "text": "👩🏿‍🏭",
     "name": "woman factory worker: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-200d-1f4bc",
     "text": "👨‍💼",
     "name": "man office worker",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fb-200d-1f4bc",
     "text": "👨🏻‍💼",
     "name": "man office worker: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fc-200d-1f4bc",
     "text": "👨🏼‍💼",
     "name": "man office worker: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fd-200d-1f4bc",
     "text": "👨🏽‍💼",
     "name": "man office worker: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fe-200d-1f4bc",
     "text": "👨🏾‍💼",
     "name": "man office worker: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3ff-200d-1f4bc",
     "text": "👨🏿‍💼",
     "name": "man office worker: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-200d-1f4bc",
     "text": "👩‍💼",
     "name": "woman office worker",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fb-200d-1f4bc",
     "text": "👩🏻‍💼",
     "name": "woman office worker: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fc-200d-1f4bc",
     "text": "👩🏼‍💼",
     "name": "woman office worker: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fd-200d-1f4bc",
     "text": "👩🏽‍💼",
     "name": "woman office worker: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fe-200d-1f4bc",
     "text": "👩🏾‍💼",
     "name": "woman office worker: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3ff-200d-1f4bc",
     "text": "👩🏿‍💼",
     "name": "woman office worker: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-200d-1f52c",
     "text": "👨‍🔬",
     "name": "man scientist",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fb-200d-1f52c",
     "text": "👨🏻‍🔬",
     "name": "man scientist: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fc-200d-1f52c",
     "text": "👨🏼‍🔬",
     "name": "man scientist: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fd-200d-1f52c",
     "text": "👨🏽‍🔬",
     "name": "man scientist: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fe-200d-1f52c",
     "text": "👨🏾‍🔬",
     "name": "man scientist: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3ff-200d-1f52c",
     "text": "👨🏿‍🔬",
     "name": "man scientist: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-200d-1f52c",
     "text": "👩‍🔬",
     "name": "woman scientist",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fb-200d-1f52c",
     "text": "👩🏻‍🔬",
     "name": "woman scientist: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fc-200d-1f52c",
     "text": "👩🏼‍🔬",
     "name": "woman scientist: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fd-200d-1f52c",
     "text": "👩🏽‍🔬",
     "name": "woman scientist: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fe-200d-1f52c",
     "text": "👩🏾‍🔬",
     "name": "woman scientist: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3ff-200d-1f52c",
     "text": "👩🏿‍🔬",
     "name": "woman scientist: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-200d-1f4bb",
     "text": "👨‍💻",
     "name": "man technologist",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fb-200d-1f4bb",
     "text": "👨🏻‍💻",
     "name": "man technologist: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fc-200d-1f4bb",
     "text": "👨🏼‍💻",
     "name": "man technologist: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fd-200d-1f4bb",
     "text": "👨🏽‍💻",
     "name": "man technologist: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fe-200d-1f4bb",
     "text": "👨🏾‍💻",
     "name": "man technologist: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3ff-200d-1f4bb",
     "text": "👨🏿‍💻",
     "name": "man technologist: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-200d-1f4bb",
     "text": "👩‍💻",
     "name": "woman technologist",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fb-200d-1f4bb",
     "text": "👩🏻‍💻",
     "name": "woman technologist: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fc-200d-1f4bb",
     "text": "👩🏼‍💻",
     "name": "woman technologist: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fd-200d-1f4bb",
     "text": "👩🏽‍💻",
     "name": "woman technologist: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fe-200d-1f4bb",
     "text": "👩🏾‍💻",
     "name": "woman technologist: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3ff-200d-1f4bb",
     "text": "👩🏿‍💻",
     "name": "woman technologist: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-200d-1f3a4",
     "text": "👨‍🎤",
     "name": "man singer",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fb-200d-1f3a4",
     "text": "👨🏻‍🎤",
     "name": "man singer: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fc-200d-1f3a4",
     "text": "👨🏼‍🎤",
     "name": "man singer: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fd-200d-1f3a4",
     "text": "👨🏽‍🎤",
     "name": "man singer: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fe-200d-1f3a4",
     "text": "👨🏾‍🎤",
     "name": "man singer: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3ff-200d-1f3a4",
     "text": "👨🏿‍🎤",
     "name": "man singer: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-200d-1f3a4",
     "text": "👩‍🎤",
     "name": "woman singer",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fb-200d-1f3a4",
     "text": "👩🏻‍🎤",
     "name": "woman singer: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fc-200d-1f3a4",
     "text": "👩🏼‍🎤",
     "name": "woman singer: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fd-200d-1f3a4",
     "text": "👩🏽‍🎤",
     "name": "woman singer: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fe-200d-1f3a4",
     "text": "👩🏾‍🎤",
     "name": "woman singer: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3ff-200d-1f3a4",
     "text": "👩🏿‍🎤",
     "name": "woman singer: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-200d-1f3a8",
@@ -1749,31 +1749,31 @@
     "codePoint": "1f468-1f3fb-200d-1f3a8",
     "text": "👨🏻‍🎨",
     "name": "man artist: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fc-200d-1f3a8",
     "text": "👨🏼‍🎨",
     "name": "man artist: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fd-200d-1f3a8",
     "text": "👨🏽‍🎨",
     "name": "man artist: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fe-200d-1f3a8",
     "text": "👨🏾‍🎨",
     "name": "man artist: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3ff-200d-1f3a8",
     "text": "👨🏿‍🎨",
     "name": "man artist: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-200d-1f3a8",
@@ -1785,31 +1785,31 @@
     "codePoint": "1f469-1f3fb-200d-1f3a8",
     "text": "👩🏻‍🎨",
     "name": "woman artist: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fc-200d-1f3a8",
     "text": "👩🏼‍🎨",
     "name": "woman artist: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fd-200d-1f3a8",
     "text": "👩🏽‍🎨",
     "name": "woman artist: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fe-200d-1f3a8",
     "text": "👩🏾‍🎨",
     "name": "woman artist: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3ff-200d-1f3a8",
     "text": "👩🏿‍🎨",
     "name": "woman artist: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-200d-2708-fe0f",
@@ -1821,31 +1821,31 @@
     "codePoint": "1f468-1f3fb-200d-2708-fe0f",
     "text": "👨🏻‍✈️",
     "name": "man pilot: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fc-200d-2708-fe0f",
     "text": "👨🏼‍✈️",
     "name": "man pilot: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fd-200d-2708-fe0f",
     "text": "👨🏽‍✈️",
     "name": "man pilot: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fe-200d-2708-fe0f",
     "text": "👨🏾‍✈️",
     "name": "man pilot: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3ff-200d-2708-fe0f",
     "text": "👨🏿‍✈️",
     "name": "man pilot: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-200d-2708-fe0f",
@@ -1857,31 +1857,31 @@
     "codePoint": "1f469-1f3fb-200d-2708-fe0f",
     "text": "👩🏻‍✈️",
     "name": "woman pilot: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fc-200d-2708-fe0f",
     "text": "👩🏼‍✈️",
     "name": "woman pilot: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fd-200d-2708-fe0f",
     "text": "👩🏽‍✈️",
     "name": "woman pilot: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fe-200d-2708-fe0f",
     "text": "👩🏾‍✈️",
     "name": "woman pilot: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3ff-200d-2708-fe0f",
     "text": "👩🏿‍✈️",
     "name": "woman pilot: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-200d-1f680",
@@ -1893,31 +1893,31 @@
     "codePoint": "1f468-1f3fb-200d-1f680",
     "text": "👨🏻‍🚀",
     "name": "man astronaut: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fc-200d-1f680",
     "text": "👨🏼‍🚀",
     "name": "man astronaut: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fd-200d-1f680",
     "text": "👨🏽‍🚀",
     "name": "man astronaut: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fe-200d-1f680",
     "text": "👨🏾‍🚀",
     "name": "man astronaut: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3ff-200d-1f680",
     "text": "👨🏿‍🚀",
     "name": "man astronaut: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-200d-1f680",
@@ -1929,31 +1929,31 @@
     "codePoint": "1f469-1f3fb-200d-1f680",
     "text": "👩🏻‍🚀",
     "name": "woman astronaut: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fc-200d-1f680",
     "text": "👩🏼‍🚀",
     "name": "woman astronaut: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fd-200d-1f680",
     "text": "👩🏽‍🚀",
     "name": "woman astronaut: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fe-200d-1f680",
     "text": "👩🏾‍🚀",
     "name": "woman astronaut: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3ff-200d-1f680",
     "text": "👩🏿‍🚀",
     "name": "woman astronaut: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-200d-1f692",
@@ -1965,31 +1965,31 @@
     "codePoint": "1f468-1f3fb-200d-1f692",
     "text": "👨🏻‍🚒",
     "name": "man firefighter: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fc-200d-1f692",
     "text": "👨🏼‍🚒",
     "name": "man firefighter: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fd-200d-1f692",
     "text": "👨🏽‍🚒",
     "name": "man firefighter: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3fe-200d-1f692",
     "text": "👨🏾‍🚒",
     "name": "man firefighter: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f468-1f3ff-200d-1f692",
     "text": "👨🏿‍🚒",
     "name": "man firefighter: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-200d-1f692",
@@ -2001,31 +2001,31 @@
     "codePoint": "1f469-1f3fb-200d-1f692",
     "text": "👩🏻‍🚒",
     "name": "woman firefighter: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fc-200d-1f692",
     "text": "👩🏼‍🚒",
     "name": "woman firefighter: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fd-200d-1f692",
     "text": "👩🏽‍🚒",
     "name": "woman firefighter: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3fe-200d-1f692",
     "text": "👩🏾‍🚒",
     "name": "woman firefighter: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f469-1f3ff-200d-1f692",
     "text": "👩🏿‍🚒",
     "name": "woman firefighter: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f46e",
@@ -2715,37 +2715,37 @@
     "codePoint": "1f936",
     "text": "🤶",
     "name": "Mrs. Claus",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f936-1f3fb",
     "text": "🤶🏻",
     "name": "Mrs. Claus: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f936-1f3fc",
     "text": "🤶🏼",
     "name": "Mrs. Claus: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f936-1f3fd",
     "text": "🤶🏽",
     "name": "Mrs. Claus: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f936-1f3fe",
     "text": "🤶🏾",
     "name": "Mrs. Claus: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f936-1f3ff",
     "text": "🤶🏿",
     "name": "Mrs. Claus: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f478",
@@ -2787,37 +2787,37 @@
     "codePoint": "1f934",
     "text": "🤴",
     "name": "prince",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f934-1f3fb",
     "text": "🤴🏻",
     "name": "prince: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f934-1f3fc",
     "text": "🤴🏼",
     "name": "prince: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f934-1f3fd",
     "text": "🤴🏽",
     "name": "prince: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f934-1f3fe",
     "text": "🤴🏾",
     "name": "prince: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f934-1f3ff",
     "text": "🤴🏿",
     "name": "prince: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f470",
@@ -2859,73 +2859,73 @@
     "codePoint": "1f935",
     "text": "🤵",
     "name": "man in tuxedo",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f935-1f3fb",
     "text": "🤵🏻",
     "name": "man in tuxedo: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f935-1f3fc",
     "text": "🤵🏼",
     "name": "man in tuxedo: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f935-1f3fd",
     "text": "🤵🏽",
     "name": "man in tuxedo: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f935-1f3fe",
     "text": "🤵🏾",
     "name": "man in tuxedo: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f935-1f3ff",
     "text": "🤵🏿",
     "name": "man in tuxedo: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f930",
     "text": "🤰",
     "name": "pregnant woman",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f930-1f3fb",
     "text": "🤰🏻",
     "name": "pregnant woman: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f930-1f3fc",
     "text": "🤰🏼",
     "name": "pregnant woman: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f930-1f3fd",
     "text": "🤰🏽",
     "name": "pregnant woman: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f930-1f3fe",
     "text": "🤰🏾",
     "name": "pregnant woman: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f930-1f3ff",
     "text": "🤰🏿",
     "name": "pregnant woman: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f472",
@@ -3723,217 +3723,217 @@
     "codePoint": "1f926",
     "text": "🤦",
     "name": "person facepalming",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f926-1f3fb",
     "text": "🤦🏻",
     "name": "person facepalming: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f926-1f3fc",
     "text": "🤦🏼",
     "name": "person facepalming: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f926-1f3fd",
     "text": "🤦🏽",
     "name": "person facepalming: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f926-1f3fe",
     "text": "🤦🏾",
     "name": "person facepalming: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f926-1f3ff",
     "text": "🤦🏿",
     "name": "person facepalming: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f926-200d-2642-fe0f",
     "text": "🤦‍♂️",
     "name": "man facepalming",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f926-1f3fb-200d-2642-fe0f",
     "text": "🤦🏻‍♂️",
     "name": "man facepalming: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f926-1f3fc-200d-2642-fe0f",
     "text": "🤦🏼‍♂️",
     "name": "man facepalming: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f926-1f3fd-200d-2642-fe0f",
     "text": "🤦🏽‍♂️",
     "name": "man facepalming: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f926-1f3fe-200d-2642-fe0f",
     "text": "🤦🏾‍♂️",
     "name": "man facepalming: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f926-1f3ff-200d-2642-fe0f",
     "text": "🤦🏿‍♂️",
     "name": "man facepalming: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f926-200d-2640-fe0f",
     "text": "🤦‍♀️",
     "name": "woman facepalming",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f926-1f3fb-200d-2640-fe0f",
     "text": "🤦🏻‍♀️",
     "name": "woman facepalming: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f926-1f3fc-200d-2640-fe0f",
     "text": "🤦🏼‍♀️",
     "name": "woman facepalming: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f926-1f3fd-200d-2640-fe0f",
     "text": "🤦🏽‍♀️",
     "name": "woman facepalming: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f926-1f3fe-200d-2640-fe0f",
     "text": "🤦🏾‍♀️",
     "name": "woman facepalming: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f926-1f3ff-200d-2640-fe0f",
     "text": "🤦🏿‍♀️",
     "name": "woman facepalming: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f937",
     "text": "🤷",
     "name": "person shrugging",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f937-1f3fb",
     "text": "🤷🏻",
     "name": "person shrugging: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f937-1f3fc",
     "text": "🤷🏼",
     "name": "person shrugging: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f937-1f3fd",
     "text": "🤷🏽",
     "name": "person shrugging: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f937-1f3fe",
     "text": "🤷🏾",
     "name": "person shrugging: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f937-1f3ff",
     "text": "🤷🏿",
     "name": "person shrugging: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f937-200d-2642-fe0f",
     "text": "🤷‍♂️",
     "name": "man shrugging",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f937-1f3fb-200d-2642-fe0f",
     "text": "🤷🏻‍♂️",
     "name": "man shrugging: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f937-1f3fc-200d-2642-fe0f",
     "text": "🤷🏼‍♂️",
     "name": "man shrugging: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f937-1f3fd-200d-2642-fe0f",
     "text": "🤷🏽‍♂️",
     "name": "man shrugging: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f937-1f3fe-200d-2642-fe0f",
     "text": "🤷🏾‍♂️",
     "name": "man shrugging: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f937-1f3ff-200d-2642-fe0f",
     "text": "🤷🏿‍♂️",
     "name": "man shrugging: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f937-200d-2640-fe0f",
     "text": "🤷‍♀️",
     "name": "woman shrugging",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f937-1f3fb-200d-2640-fe0f",
     "text": "🤷🏻‍♀️",
     "name": "woman shrugging: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f937-1f3fc-200d-2640-fe0f",
     "text": "🤷🏼‍♀️",
     "name": "woman shrugging: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f937-1f3fd-200d-2640-fe0f",
     "text": "🤷🏽‍♀️",
     "name": "woman shrugging: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f937-1f3fe-200d-2640-fe0f",
     "text": "🤷🏾‍♀️",
     "name": "woman shrugging: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f937-1f3ff-200d-2640-fe0f",
     "text": "🤷🏿‍♀️",
     "name": "woman shrugging: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f486",
@@ -4407,37 +4407,37 @@
     "codePoint": "1f57a",
     "text": "🕺",
     "name": "man dancing",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f57a-1f3fb",
     "text": "🕺🏻",
     "name": "man dancing: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f57a-1f3fc",
     "text": "🕺🏼",
     "name": "man dancing: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f57a-1f3fd",
     "text": "🕺🏽",
     "name": "man dancing: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f57a-1f3fe",
     "text": "🕺🏾",
     "name": "man dancing: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f57a-1f3ff",
     "text": "🕺🏿",
     "name": "man dancing: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f46f",
@@ -4557,31 +4557,31 @@
     "codePoint": "1f574-1f3fb",
     "text": "🕴🏻",
     "name": "man in business suit levitating: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f574-1f3fc",
     "text": "🕴🏼",
     "name": "man in business suit levitating: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f574-1f3fd",
     "text": "🕴🏽",
     "name": "man in business suit levitating: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f574-1f3fe",
     "text": "🕴🏾",
     "name": "man in business suit levitating: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f574-1f3ff",
     "text": "🕴🏿",
     "name": "man in business suit levitating: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f5e3",
@@ -4605,7 +4605,7 @@
     "codePoint": "1f93a",
     "text": "🤺",
     "name": "person fencing",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f3c7",
@@ -4617,31 +4617,31 @@
     "codePoint": "1f3c7-1f3fb",
     "text": "🏇🏻",
     "name": "horse racing: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f3c7-1f3fc",
     "text": "🏇🏼",
     "name": "horse racing: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f3c7-1f3fd",
     "text": "🏇🏽",
     "name": "horse racing: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f3c7-1f3fe",
     "text": "🏇🏾",
     "name": "horse racing: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f3c7-1f3ff",
     "text": "🏇🏿",
     "name": "horse racing: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "26f7",
@@ -4695,31 +4695,31 @@
     "codePoint": "1f3cc-1f3fb",
     "text": "🏌🏻",
     "name": "person golfing: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f3cc-1f3fc",
     "text": "🏌🏼",
     "name": "person golfing: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f3cc-1f3fd",
     "text": "🏌🏽",
     "name": "person golfing: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f3cc-1f3fe",
     "text": "🏌🏾",
     "name": "person golfing: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f3cc-1f3ff",
     "text": "🏌🏿",
     "name": "person golfing: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f3cc-fe0f-200d-2642-fe0f",
@@ -4731,31 +4731,31 @@
     "codePoint": "1f3cc-1f3fb-200d-2642-fe0f",
     "text": "🏌🏻‍♂️",
     "name": "man golfing: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f3cc-1f3fc-200d-2642-fe0f",
     "text": "🏌🏼‍♂️",
     "name": "man golfing: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f3cc-1f3fd-200d-2642-fe0f",
     "text": "🏌🏽‍♂️",
     "name": "man golfing: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f3cc-1f3fe-200d-2642-fe0f",
     "text": "🏌🏾‍♂️",
     "name": "man golfing: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f3cc-1f3ff-200d-2642-fe0f",
     "text": "🏌🏿‍♂️",
     "name": "man golfing: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f3cc-fe0f-200d-2640-fe0f",
@@ -4767,31 +4767,31 @@
     "codePoint": "1f3cc-1f3fb-200d-2640-fe0f",
     "text": "🏌🏻‍♀️",
     "name": "woman golfing: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f3cc-1f3fc-200d-2640-fe0f",
     "text": "🏌🏼‍♀️",
     "name": "woman golfing: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f3cc-1f3fd-200d-2640-fe0f",
     "text": "🏌🏽‍♀️",
     "name": "woman golfing: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f3cc-1f3fe-200d-2640-fe0f",
     "text": "🏌🏾‍♀️",
     "name": "woman golfing: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f3cc-1f3ff-200d-2640-fe0f",
     "text": "🏌🏿‍♀️",
     "name": "woman golfing: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f3c4",
@@ -5565,115 +5565,115 @@
     "codePoint": "1f938",
     "text": "🤸",
     "name": "person cartwheeling",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f938-1f3fb",
     "text": "🤸🏻",
     "name": "person cartwheeling: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f938-1f3fc",
     "text": "🤸🏼",
     "name": "person cartwheeling: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f938-1f3fd",
     "text": "🤸🏽",
     "name": "person cartwheeling: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f938-1f3fe",
     "text": "🤸🏾",
     "name": "person cartwheeling: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f938-1f3ff",
     "text": "🤸🏿",
     "name": "person cartwheeling: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f938-200d-2642-fe0f",
     "text": "🤸‍♂️",
     "name": "man cartwheeling",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f938-1f3fb-200d-2642-fe0f",
     "text": "🤸🏻‍♂️",
     "name": "man cartwheeling: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f938-1f3fc-200d-2642-fe0f",
     "text": "🤸🏼‍♂️",
     "name": "man cartwheeling: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f938-1f3fd-200d-2642-fe0f",
     "text": "🤸🏽‍♂️",
     "name": "man cartwheeling: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f938-1f3fe-200d-2642-fe0f",
     "text": "🤸🏾‍♂️",
     "name": "man cartwheeling: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f938-1f3ff-200d-2642-fe0f",
     "text": "🤸🏿‍♂️",
     "name": "man cartwheeling: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f938-200d-2640-fe0f",
     "text": "🤸‍♀️",
     "name": "woman cartwheeling",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f938-1f3fb-200d-2640-fe0f",
     "text": "🤸🏻‍♀️",
     "name": "woman cartwheeling: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f938-1f3fc-200d-2640-fe0f",
     "text": "🤸🏼‍♀️",
     "name": "woman cartwheeling: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f938-1f3fd-200d-2640-fe0f",
     "text": "🤸🏽‍♀️",
     "name": "woman cartwheeling: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f938-1f3fe-200d-2640-fe0f",
     "text": "🤸🏾‍♀️",
     "name": "woman cartwheeling: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f938-1f3ff-200d-2640-fe0f",
     "text": "🤸🏿‍♀️",
     "name": "woman cartwheeling: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93c",
     "text": "🤼",
     "name": "people wrestling",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93c-1f3fb",
@@ -5709,7 +5709,7 @@
     "codePoint": "1f93c-200d-2642-fe0f",
     "text": "🤼‍♂️",
     "name": "men wrestling",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93c-1f3fb-200d-2642-fe0f",
@@ -5745,7 +5745,7 @@
     "codePoint": "1f93c-200d-2640-fe0f",
     "text": "🤼‍♀️",
     "name": "women wrestling",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93c-1f3fb-200d-2640-fe0f",
@@ -5781,325 +5781,325 @@
     "codePoint": "1f93d",
     "text": "🤽",
     "name": "person playing water polo",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93d-1f3fb",
     "text": "🤽🏻",
     "name": "person playing water polo: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93d-1f3fc",
     "text": "🤽🏼",
     "name": "person playing water polo: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93d-1f3fd",
     "text": "🤽🏽",
     "name": "person playing water polo: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93d-1f3fe",
     "text": "🤽🏾",
     "name": "person playing water polo: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93d-1f3ff",
     "text": "🤽🏿",
     "name": "person playing water polo: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93d-200d-2642-fe0f",
     "text": "🤽‍♂️",
     "name": "man playing water polo",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93d-1f3fb-200d-2642-fe0f",
     "text": "🤽🏻‍♂️",
     "name": "man playing water polo: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93d-1f3fc-200d-2642-fe0f",
     "text": "🤽🏼‍♂️",
     "name": "man playing water polo: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93d-1f3fd-200d-2642-fe0f",
     "text": "🤽🏽‍♂️",
     "name": "man playing water polo: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93d-1f3fe-200d-2642-fe0f",
     "text": "🤽🏾‍♂️",
     "name": "man playing water polo: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93d-1f3ff-200d-2642-fe0f",
     "text": "🤽🏿‍♂️",
     "name": "man playing water polo: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93d-200d-2640-fe0f",
     "text": "🤽‍♀️",
     "name": "woman playing water polo",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93d-1f3fb-200d-2640-fe0f",
     "text": "🤽🏻‍♀️",
     "name": "woman playing water polo: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93d-1f3fc-200d-2640-fe0f",
     "text": "🤽🏼‍♀️",
     "name": "woman playing water polo: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93d-1f3fd-200d-2640-fe0f",
     "text": "🤽🏽‍♀️",
     "name": "woman playing water polo: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93d-1f3fe-200d-2640-fe0f",
     "text": "🤽🏾‍♀️",
     "name": "woman playing water polo: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93d-1f3ff-200d-2640-fe0f",
     "text": "🤽🏿‍♀️",
     "name": "woman playing water polo: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93e",
     "text": "🤾",
     "name": "person playing handball",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93e-1f3fb",
     "text": "🤾🏻",
     "name": "person playing handball: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93e-1f3fc",
     "text": "🤾🏼",
     "name": "person playing handball: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93e-1f3fd",
     "text": "🤾🏽",
     "name": "person playing handball: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93e-1f3fe",
     "text": "🤾🏾",
     "name": "person playing handball: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93e-1f3ff",
     "text": "🤾🏿",
     "name": "person playing handball: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93e-200d-2642-fe0f",
     "text": "🤾‍♂️",
     "name": "man playing handball",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93e-1f3fb-200d-2642-fe0f",
     "text": "🤾🏻‍♂️",
     "name": "man playing handball: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93e-1f3fc-200d-2642-fe0f",
     "text": "🤾🏼‍♂️",
     "name": "man playing handball: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93e-1f3fd-200d-2642-fe0f",
     "text": "🤾🏽‍♂️",
     "name": "man playing handball: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93e-1f3fe-200d-2642-fe0f",
     "text": "🤾🏾‍♂️",
     "name": "man playing handball: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93e-1f3ff-200d-2642-fe0f",
     "text": "🤾🏿‍♂️",
     "name": "man playing handball: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93e-200d-2640-fe0f",
     "text": "🤾‍♀️",
     "name": "woman playing handball",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93e-1f3fb-200d-2640-fe0f",
     "text": "🤾🏻‍♀️",
     "name": "woman playing handball: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93e-1f3fc-200d-2640-fe0f",
     "text": "🤾🏼‍♀️",
     "name": "woman playing handball: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93e-1f3fd-200d-2640-fe0f",
     "text": "🤾🏽‍♀️",
     "name": "woman playing handball: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93e-1f3fe-200d-2640-fe0f",
     "text": "🤾🏾‍♀️",
     "name": "woman playing handball: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f93e-1f3ff-200d-2640-fe0f",
     "text": "🤾🏿‍♀️",
     "name": "woman playing handball: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f939",
     "text": "🤹",
     "name": "person juggling",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f939-1f3fb",
     "text": "🤹🏻",
     "name": "person juggling: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f939-1f3fc",
     "text": "🤹🏼",
     "name": "person juggling: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f939-1f3fd",
     "text": "🤹🏽",
     "name": "person juggling: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f939-1f3fe",
     "text": "🤹🏾",
     "name": "person juggling: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f939-1f3ff",
     "text": "🤹🏿",
     "name": "person juggling: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f939-200d-2642-fe0f",
     "text": "🤹‍♂️",
     "name": "man juggling",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f939-1f3fb-200d-2642-fe0f",
     "text": "🤹🏻‍♂️",
     "name": "man juggling: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f939-1f3fc-200d-2642-fe0f",
     "text": "🤹🏼‍♂️",
     "name": "man juggling: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f939-1f3fd-200d-2642-fe0f",
     "text": "🤹🏽‍♂️",
     "name": "man juggling: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f939-1f3fe-200d-2642-fe0f",
     "text": "🤹🏾‍♂️",
     "name": "man juggling: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f939-1f3ff-200d-2642-fe0f",
     "text": "🤹🏿‍♂️",
     "name": "man juggling: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f939-200d-2640-fe0f",
     "text": "🤹‍♀️",
     "name": "woman juggling",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f939-1f3fb-200d-2640-fe0f",
     "text": "🤹🏻‍♀️",
     "name": "woman juggling: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f939-1f3fc-200d-2640-fe0f",
     "text": "🤹🏼‍♀️",
     "name": "woman juggling: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f939-1f3fd-200d-2640-fe0f",
     "text": "🤹🏽‍♀️",
     "name": "woman juggling: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f939-1f3fe-200d-2640-fe0f",
     "text": "🤹🏾‍♀️",
     "name": "woman juggling: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f939-1f3ff-200d-2640-fe0f",
     "text": "🤹🏿‍♀️",
     "name": "woman juggling: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f46b",
@@ -6513,37 +6513,37 @@
     "codePoint": "1f933",
     "text": "🤳",
     "name": "selfie",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f933-1f3fb",
     "text": "🤳🏻",
     "name": "selfie: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f933-1f3fc",
     "text": "🤳🏼",
     "name": "selfie: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f933-1f3fd",
     "text": "🤳🏽",
     "name": "selfie: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f933-1f3fe",
     "text": "🤳🏾",
     "name": "selfie: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f933-1f3ff",
     "text": "🤳🏿",
     "name": "selfie: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f448",
@@ -6801,37 +6801,37 @@
     "codePoint": "1f91e",
     "text": "🤞",
     "name": "crossed fingers",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f91e-1f3fb",
     "text": "🤞🏻",
     "name": "crossed fingers: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f91e-1f3fc",
     "text": "🤞🏼",
     "name": "crossed fingers: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f91e-1f3fd",
     "text": "🤞🏽",
     "name": "crossed fingers: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f91e-1f3fe",
     "text": "🤞🏾",
     "name": "crossed fingers: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f91e-1f3ff",
     "text": "🤞🏿",
     "name": "crossed fingers: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f596",
@@ -6909,37 +6909,37 @@
     "codePoint": "1f919",
     "text": "🤙",
     "name": "call me hand",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f919-1f3fb",
     "text": "🤙🏻",
     "name": "call me hand: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f919-1f3fc",
     "text": "🤙🏼",
     "name": "call me hand: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f919-1f3fd",
     "text": "🤙🏽",
     "name": "call me hand: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f919-1f3fe",
     "text": "🤙🏾",
     "name": "call me hand: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f919-1f3ff",
     "text": "🤙🏿",
     "name": "call me hand: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f590",
@@ -7197,109 +7197,109 @@
     "codePoint": "1f91b",
     "text": "🤛",
     "name": "left-facing fist",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f91b-1f3fb",
     "text": "🤛🏻",
     "name": "left-facing fist: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f91b-1f3fc",
     "text": "🤛🏼",
     "name": "left-facing fist: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f91b-1f3fd",
     "text": "🤛🏽",
     "name": "left-facing fist: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f91b-1f3fe",
     "text": "🤛🏾",
     "name": "left-facing fist: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f91b-1f3ff",
     "text": "🤛🏿",
     "name": "left-facing fist: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f91c",
     "text": "🤜",
     "name": "right-facing fist",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f91c-1f3fb",
     "text": "🤜🏻",
     "name": "right-facing fist: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f91c-1f3fc",
     "text": "🤜🏼",
     "name": "right-facing fist: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f91c-1f3fd",
     "text": "🤜🏽",
     "name": "right-facing fist: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f91c-1f3fe",
     "text": "🤜🏾",
     "name": "right-facing fist: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f91c-1f3ff",
     "text": "🤜🏿",
     "name": "right-facing fist: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f91a",
     "text": "🤚",
     "name": "raised back of hand",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f91a-1f3fb",
     "text": "🤚🏻",
     "name": "raised back of hand: light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f91a-1f3fc",
     "text": "🤚🏼",
     "name": "raised back of hand: medium-light skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f91a-1f3fd",
     "text": "🤚🏽",
     "name": "raised back of hand: medium skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f91a-1f3fe",
     "text": "🤚🏾",
     "name": "raised back of hand: medium-dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f91a-1f3ff",
     "text": "🤚🏿",
     "name": "raised back of hand: dark skin tone",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f44b",
@@ -7521,7 +7521,7 @@
     "codePoint": "1f91d",
     "text": "🤝",
     "name": "handshake",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f91d-1f3fb",
@@ -7773,7 +7773,7 @@
     "codePoint": "1f5a4",
     "text": "🖤",
     "name": "black heart",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f49d",
@@ -8061,7 +8061,7 @@
     "codePoint": "1f98d",
     "text": "🦍",
     "name": "gorilla",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f436",
@@ -8091,7 +8091,7 @@
     "codePoint": "1f98a",
     "text": "🦊",
     "name": "fox face",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f431",
@@ -8145,7 +8145,7 @@
     "codePoint": "1f98c",
     "text": "🦌",
     "name": "deer",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f984",
@@ -8241,7 +8241,7 @@
     "codePoint": "1f98f",
     "text": "🦏",
     "name": "rhinoceros",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f42d",
@@ -8289,7 +8289,7 @@
     "codePoint": "1f987",
     "text": "🦇",
     "name": "bat",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f43b",
@@ -8373,19 +8373,19 @@
     "codePoint": "1f985",
     "text": "🦅",
     "name": "eagle",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f986",
     "text": "🦆",
     "name": "duck",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f989",
     "text": "🦉",
     "name": "owl",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f438",
@@ -8409,7 +8409,7 @@
     "codePoint": "1f98e",
     "text": "🦎",
     "name": "lizard",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f40d",
@@ -8469,7 +8469,7 @@
     "codePoint": "1f988",
     "text": "🦈",
     "name": "shark",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f419",
@@ -8493,19 +8493,19 @@
     "codePoint": "1f990",
     "text": "🦐",
     "name": "shrimp",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f991",
     "text": "🦑",
     "name": "squid",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f98b",
     "text": "🦋",
     "name": "butterfly",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f40c",
@@ -8589,7 +8589,7 @@
     "codePoint": "1f940",
     "text": "🥀",
     "name": "wilted flower",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f33a",
@@ -8769,7 +8769,7 @@
     "codePoint": "1f95d",
     "text": "🥝",
     "name": "kiwi fruit",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f345",
@@ -8781,7 +8781,7 @@
     "codePoint": "1f951",
     "text": "🥑",
     "name": "avocado",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f346",
@@ -8793,13 +8793,13 @@
     "codePoint": "1f954",
     "text": "🥔",
     "name": "potato",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f955",
     "text": "🥕",
     "name": "carrot",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f33d",
@@ -8817,7 +8817,7 @@
     "codePoint": "1f952",
     "text": "🥒",
     "name": "cucumber",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f344",
@@ -8829,7 +8829,7 @@
     "codePoint": "1f95c",
     "text": "🥜",
     "name": "peanuts",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f330",
@@ -8847,19 +8847,19 @@
     "codePoint": "1f950",
     "text": "🥐",
     "name": "croissant",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f956",
     "text": "🥖",
     "name": "baguette bread",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f95e",
     "text": "🥞",
     "name": "pancakes",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f9c0",
@@ -8883,7 +8883,7 @@
     "codePoint": "1f953",
     "text": "🥓",
     "name": "bacon",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f354",
@@ -8925,13 +8925,13 @@
     "codePoint": "1f959",
     "text": "🥙",
     "name": "stuffed flatbread",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f95a",
     "text": "🥚",
     "name": "egg",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f373",
@@ -8943,7 +8943,7 @@
     "codePoint": "1f958",
     "text": "🥘",
     "name": "shallow pan of food",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f372",
@@ -8955,7 +8955,7 @@
     "codePoint": "1f957",
     "text": "🥗",
     "name": "green salad",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f37f",
@@ -9123,7 +9123,7 @@
     "codePoint": "1f95b",
     "text": "🥛",
     "name": "glass of milk",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "2615",
@@ -9183,13 +9183,13 @@
     "codePoint": "1f942",
     "text": "🥂",
     "name": "clinking glasses",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f943",
     "text": "🥃",
     "name": "tumbler glass",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f37d",
@@ -9207,7 +9207,7 @@
     "codePoint": "1f944",
     "text": "🥄",
     "name": "spoon",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f52a",
@@ -9783,13 +9783,13 @@
     "codePoint": "1f6f4",
     "text": "🛴",
     "name": "kick scooter",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f6f5",
     "text": "🛵",
     "name": "motor scooter",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f68f",
@@ -9843,7 +9843,7 @@
     "codePoint": "1f6d1",
     "text": "🛑",
     "name": "stop sign",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "2693",
@@ -9861,7 +9861,7 @@
     "codePoint": "1f6f6",
     "text": "🛶",
     "name": "canoe",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f6a4",
@@ -10665,19 +10665,19 @@
     "codePoint": "1f947",
     "text": "🥇",
     "name": "1st place medal",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f948",
     "text": "🥈",
     "name": "2nd place medal",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f949",
     "text": "🥉",
     "name": "3rd place medal",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "26bd",
@@ -10767,19 +10767,19 @@
     "codePoint": "1f94a",
     "text": "🥊",
     "name": "boxing glove",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f94b",
     "text": "🥋",
     "name": "martial arts uniform",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f945",
     "text": "🥅",
     "name": "goal net",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f3af",
@@ -11019,7 +11019,7 @@
     "codePoint": "1f941",
     "text": "🥁",
     "name": "drum",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f4f1",
@@ -11847,7 +11847,7 @@
     "codePoint": "1f6d2",
     "text": "🛒",
     "name": "shopping cart",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "1f3e7",
@@ -12519,7 +12519,7 @@
     "codePoint": "2695",
     "text": "⚕",
     "name": "medical symbol",
-    "hasApple": false
+    "hasApple": true
   },
   {
     "codePoint": "2796",

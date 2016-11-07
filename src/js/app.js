@@ -7,10 +7,10 @@ import I from 'immutable';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-// if (process.env.NODE_ENV !== 'production') {
-//   const { whyDidYouUpdate } = require('why-did-you-update');
-//   whyDidYouUpdate(React)
-// }
+if (process.env.NODE_ENV !== 'production') {
+  const { whyDidYouUpdate } = require('why-did-you-update');
+  whyDidYouUpdate(React)
+}
 
 import { style, merge } from 'glamor';
 import { createElement } from 'glamor/react';
@@ -18,6 +18,10 @@ import { createElement } from 'glamor/react';
 
 import emojis from '../../emojis/emojis.json';
 
+import spriteData from '../../emojis/apple/ios-10.0/64x64.json';
+import spriteSheet from '../../emojis/apple/ios-10.0/64x64.png';
+const spriteSheetTexture = PIXI.Texture.fromImage(spriteSheet);
+ 
 class EmojiRainCanvas extends React.PureComponent {
   state = { drops: null }
 
@@ -29,9 +33,15 @@ class EmojiRainCanvas extends React.PureComponent {
 
   getEmojiTextures() {
     return this.props.emojis.map((e) => {
-      const src = process.publicPath + 'assets/emojis/apple/24x24/'+ e.codePoint + '.png';
-      return PIXI.Texture.fromImage(src);
-    }).filter(t => t);
+      e = emojis.find(e1 => e1.text === e);
+      let frame = spriteData.frames[e.codePoint + '.png'];
+      if (frame != null) {
+        frame = frame.frame;
+        return new PIXI.Texture(spriteSheetTexture, new PIXI.Rectangle(- frame.x, - frame.y, frame.w, frame.h));
+      }
+      // const src = process.publicPath + 'assets/emojis/apple/24x24/'+ e.codePoint + '.png';
+      // return PIXI.Texture.fromImage(src);
+    }).filter(t => t).toArray();
   }
 
   getCarpetDimensions() {
@@ -321,6 +331,10 @@ class EmojiSelector extends React.PureComponent {
           {emojis.filter((e) => e.hasApple).map((e, i) => {
             const src = process.publicPath + 'assets/emojis/apple/24x24/' + e.codePoint + '.png';
             const isSelected = this.props.selected.includes(e.text);
+            let frame = spriteData.frames[e.codePoint + '.png'];
+            if (frame != null) {
+              frame = frame.frame;
+            }
             return (
               <div
                 key={e.text}
@@ -347,8 +361,7 @@ class EmojiSelector extends React.PureComponent {
                   },
                   outline: 'none',
                 }}>
-                  <img
-                    src={src}
+                  <div
                     css={{
                       width: 30,
                       height: 30,
@@ -360,8 +373,12 @@ class EmojiSelector extends React.PureComponent {
                       opacity: isSelected ? 1 : 0.6,
                       outline: 0,
                       transition: 'opacity 250ms ease-out',
+                      backgroundSize: '4400%',
+                      backgroundImage: `url(${spriteSheet})`,
                     }}
-                    alt={e.text}
+                    style={{
+                      backgroundPosition: frame != null ? `${frame.x * (30/64)}px ${frame.y * (30/64)}px` : null,
+                    }}
                     // NOTE(brian): why is img sometimes the target of the event? :3
                     data-emoji={e.text}
                     />
@@ -399,7 +416,7 @@ class App extends React.PureComponent {
         <div css={{ position: 'absolute', top: 0, left: 0 }}>
           <EmojiRain
             {...this.state.viewport}
-            emojis={emojis.filter(e => this.state.selectedEmojis.includes(e.text))}
+            emojis={this.state.selectedEmojis}
             emojiSize={this.state.emojiSize}
             fallProb={this.state.fallProb}
             mutationProb={this.state.mutationProb}
