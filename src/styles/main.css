@@ -8,6 +8,8 @@ body {
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 *, *:before, *:after {

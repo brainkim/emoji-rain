@@ -2,15 +2,23 @@ import 'babel-polyfill';
 
 import '../styles/main.css';
 
+import I from 'immutable';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+// if (process.env.NODE_ENV !== 'production') {
+//   const { whyDidYouUpdate } = require('why-did-you-update');
+//   whyDidYouUpdate(React)
+// }
+
+import { style, merge } from 'glamor';
 import { createElement } from 'glamor/react';
 /* @jsx createElement */
 
 import emojis from '../../emojis/emojis.json';
 
-class EmojiRainCanvas extends React.Component {
+class EmojiRainCanvas extends React.PureComponent {
   state = { drops: null }
 
   render() {
@@ -155,12 +163,11 @@ class EmojiRainCanvas extends React.Component {
   }
 }
 
-class EmojiRain extends React.Component {
+class EmojiRain extends React.PureComponent {
   static defaultProps = {
     width: 2000,
     height: 1000,
     emojiSize: 24,
-    emojis: [],
     fallProb: 0.005,
     mutationProb: 0.05,
     refreshRate: 80,
@@ -175,7 +182,7 @@ class EmojiRain extends React.Component {
   }
 }
 
-class Ticker extends React.Component {
+class Ticker extends React.PureComponent {
   state = {
     start: null,
     last: null,
@@ -215,11 +222,70 @@ class Ticker extends React.Component {
   }
 }
 
+const tabStyle = style({
+  width: '50%',
+  cursor: 'pointer',
+  display: 'inline-block',
+  textAlign: 'center',
+  outline: 'none',
+  ':focus': {
+  },
+});
 
-class EmojiSelector extends React.Component {
+class EmojiSelectorTabs extends React.PureComponent {
+  static defaultProps = {
+    value: 'all',
+
+    onChange: () => {},
+  }
+
+  handleClick = (value) => {
+    this.props.onChange(value);
+  }
+
+  render() {
+    return (
+      <div
+        css={{
+          marginBottom: 20,
+          width: '100%',
+          position: 'relative',
+          top: 0,
+          left: 0,
+        }}>
+        <div {...tabStyle}
+          onClick={this.handleClick.bind(null, 'all')}
+          tabIndex="0">All</div>
+        <div {...tabStyle}
+          onClick={this.handleClick.bind(null, 'active')}
+          tabIndex="0">Active</div>
+        <div css={{
+          position: 'relative',
+          width: '50%',
+          left: this.props.value === 'all' ? 0 : '50%',
+          transition: 'left 0.5s ease-in-out',
+          backgroundColor: '#b5e0fe',
+          height: 5,
+          borderRadius: 2,
+          transition: 'left 0.5s ease-in-out',
+        }} />
+      </div>
+    );
+  }
+}
+
+class EmojiSelector extends React.PureComponent {
   static defaultProps = {
     selected: [],
     onSelect: () => {},
+  }
+
+  state = {
+    tab: 'all',
+  }
+
+  handleTabChange = (tab) => {
+    this.setState({ tab });
   }
 
   handleKeyPress = (ev) => {
@@ -229,74 +295,97 @@ class EmojiSelector extends React.Component {
   }
 
   handleClick = (ev) => {
-    const selected = this.props.selected;
-    const e = JSON.parse(ev.target.dataset.emoji);
-    const index = selected.findIndex((e1) => {
-      return e1.text === e.text;
-    });
-    let nextSelected;
-    if (index !== -1) {
-      nextSelected = selected.slice(0, index).concat(selected.slice(index + 1));
+    const emoji = ev.target.dataset.emoji;
+    if (this.props.selected.includes(emoji)) {
+      this.props.onSelect(this.props.selected.remove(emoji));
     } else {
-      nextSelected = selected.concat([e]);
+      this.props.onSelect(this.props.selected.add(emoji));
     }
-    this.props.onSelect(nextSelected);
   }
 
   render() {
     return (
-      <div css={{
-        width: 421,
-        backgroundColor: '#fff',
-        maxHeight: 400,
-        overflowX: 'hidden',
-        overflowY: 'scroll',
-      }}>
-        {emojis.filter((e) => e.hasApple).map((e) => {
-          const src = process.publicPath + 'assets/emojis/apple/48x48/' + e.codePoint + '.png';
-          const selected = this.props.selected.find(e1 => e1.text === e.text);
-          return (
-            <div
-              key={e.text}
-              css={{
-                width: 50,
-                height: 50,
-                backgroundColor: selected ? '#bbb' : 'transparent',
-                display: 'inline-block',
-                verticalAlign: 'top',
-              }}>
-              <img
-                src={src}
-                css={{
-                  width: 50,
-                  height: 50,
-                  userSelect: 'none',
-                  opacity: selected ? 1 : 0.6,
-                  cursor: 'pointer',
-                  outline: 0,
-                }}
+      <div
+        css={{
+          backgroundColor: 'rgba(255, 255, 255, 0.5)',
+        }}>
+        <EmojiSelectorTabs value={this.state.tab} onChange={this.handleTabChange} />
+        <div css={{
+          width: 500,
+          maxHeight: 400,
+          padding: 20,
+          position: 'relative',
+          overflowX: 'hidden',
+          overflowY: 'scroll',
+        }}>
+          {emojis.filter((e) => e.hasApple).map((e, i) => {
+            const src = process.publicPath + 'assets/emojis/apple/24x24/' + e.codePoint + '.png';
+            const isSelected = this.props.selected.includes(e.text);
+            return (
+              <div
+                key={e.text}
+                data-emoji={e.text}
+                tabIndex="0"
                 onClick={this.handleClick}
                 onKeyPress={this.handleKeyPress}
-                tabIndex="0"
-                alt={e.text}
-                data-emoji={JSON.stringify(e)}
-                />
-            </div>
-          );
-        })}
+                css={{
+                  display: this.state.tab === 'all' ? 'inline-block' : isSelected ? 'inline-block' : 'none',
+                  cursor: 'pointer',
+                  position: 'relative',
+                  width: 46,
+                  height: 46,
+                  margin: 2,
+                  borderRadius: 4,
+                  backgroundColor: isSelected ? '#b5e0fe' : 'transparent',
+                  verticalAlign: 'top',
+                  transition: 'background-color 250ms ease-out',
+                  ':focus': {
+                    border: '1px solid #b5e0fe',
+                  },
+                  ':hover': {
+                    border: '1px solid #b5e0fe',
+                  },
+                  outline: 'none',
+                }}>
+                  <img
+                    src={src}
+                    css={{
+                      width: 30,
+                      height: 30,
+                      position: 'absolute',
+                      top: '50%',
+                      left: '50%',
+                      transform: 'translate(-50%, -50%)',
+                      userSelect: 'none',
+                      opacity: isSelected ? 1 : 0.6,
+                      outline: 0,
+                      transition: 'opacity 250ms ease-out',
+                    }}
+                    alt={e.text}
+                    // NOTE(brian): why is img sometimes the target of the event? :3
+                    data-emoji={e.text}
+                    />
+                </div>
+            );
+          })}
+        </div>
       </div>
     );
   }
 }
 
-class App extends React.Component {
+class App extends React.PureComponent {
   state = {
     viewport: { width: 0, height: 0 },
-    selectedEmojis: [],
-    emojiSize: 20,
+    selectedEmojis: I.Set(emojis.slice(0, 10).map(e => e.text)),
+    emojiSize: 24,
     fallProb: 0.005,
-    mutationProb: 0.005,
+    mutationProb: 0.025,
     refreshRate: 80,
+  }
+
+  handleSelect = (selected) => {
+    this.setState({ selectedEmojis: selected });
   }
 
   render() {
@@ -310,7 +399,7 @@ class App extends React.Component {
         <div css={{ position: 'absolute', top: 0, left: 0 }}>
           <EmojiRain
             {...this.state.viewport}
-            emojis={this.state.selectedEmojis}
+            emojis={emojis.filter(e => this.state.selectedEmojis.includes(e.text))}
             emojiSize={this.state.emojiSize}
             fallProb={this.state.fallProb}
             mutationProb={this.state.mutationProb}
@@ -318,9 +407,7 @@ class App extends React.Component {
             />
         </div>
         <div css={{ position: 'absolute', top: 0, left: 0, fontSize: 30}}>
-          <EmojiSelector selected={this.state.selectedEmojis} onSelect={(selected) => {
-            this.setState({ selectedEmojis: selected });
-          }} />
+          <EmojiSelector selected={this.state.selectedEmojis} onSelect={this.handleSelect} />
           <input css={inputStyle} type="range" min={0} max={0.01} step={0.0005} value={this.state.fallProb} onChange={ev => this.setState({ fallProb: ev.target.value }) } />
           <input css={inputStyle} type="range" min={0} max={0.05} step={0.001} value={this.state.mutationProb} onChange={ev => this.setState({ mutationProb: ev.target.value })} /> 
           <input css={inputStyle} type="range" min={20} max={200} value={this.state.refreshRate} onChange={ev => this.setState({ refreshRate: ev.target.value })} />

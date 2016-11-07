@@ -6,11 +6,14 @@ import mkdirp from 'mkdirp';
 
 import cheerio from 'cheerio';
 import sharp from 'sharp';
+import async from 'async';
 
+const version = 'ios-10.0';
+mkdirp(`./emojis/apple/${version}/`);
 let data = '';
-const req = http.request({
+http.request({
   hostname: 'emojipedia.org',
-  path: '/apple/ios-5.0/',
+  path: `/apple/${version}/`,
   method: 'GET',
 }, (res) => {
   res.setEncoding('utf8');
@@ -19,35 +22,60 @@ const req = http.request({
   });
   res.on('end', () => {
     fs.writeFileSync('poop.html', data);
-    data = parseData();
-  });
-});
-
-req.end();
-
-function saveImage(unicode, vendor, src) {
-  const match = src.match(/^data:.+\/(.+);base64,(.*)$/);
-  const ext = match[1];
-  const data = match[2];
-  const buffer = new Buffer(data, 'base64');
-  [24, 48, 72].forEach((size) => {
-    const path = `emojis/${vendor}/${size}x${size}/`;
-    mkdirp.sync(path);
-    sharp(buffer).resize(size).toFile(`${path}${unicode}.${ext}`, (err, i) => {
-      console.log(err, i);
+    const emojis = parseHtml(data);
+    async.mapLimit(emojis, 10, fetchEmojiFromDetailPage, (err, emojis) => {
     });
+  });
+}).end();
+
+function parseHtml(html) {
+  const $ = cheerio.load(html);
+  return $('.emoji-grid a').map((i, a) => {
+    const img = $(a).find('>img');
+    const name = $(img).attr('alt');
+    const imageUrl = $(img).data('src') || $(img).attr('src');
+    const detailUrl = $(a).attr('href');
+    return {
+      name,
+      imageUrl,
+      detailUrl,
+    };
   });
 }
 
-import emojis from '../emojis/emojis.json';
-function parseData() {
-  const $ = cheerio.load(data);
-  return $('.emoji-grid a>img').each((i, el) => {
-    const name = $(el).attr('title').toLowerCase();
-    const src = $(el).attr('src');
-    const emoji = emojis.find((e) => e.name === name);
-    if (emoji == null) {
-      console.log(name);
+function parseDetailPage(html) {
+  const $ = cheerio.load(html);
+  return $('h1 > .emoji').first().text();
+}
+
+function fetchEmojiFromDetailPage(data, callback) {
+  http.request({
+    hostname: 'emojipedia.org', 
+    path: data.detailUrl,
+    method: 'GET',
+  }, (res) => {
+    let detailPage = '';
+    res.setEncoding('utf8');
+    res.on('data', (chunk) => {
+      detailPage += chunk;
+    });
+    res.on('end', () => {
+      const emoji = parseDetailPage(detailPage);
+      downloadImage({...data, emoji}, callback);
+    });
+  }).end();
+}
+
+function downloadImage(data, callback) {
+  const codePoint = twemoji.convert.toCodePoint(data.emoji);
+  const out = fs.createWriteStream(`emojis/apple/${version}/${codePoint}.png`);
+  http.get(data.imageUrl, (res) => {
+    console.log(data.emoji, codePoint, res.statusCode);
+    if (res.statusCode === 200) {
+      res.pipe(out);
+      callback(null, data.emoji);
+    } else {
+      callback(res);
     }
   });
 }
