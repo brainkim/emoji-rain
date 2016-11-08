@@ -7,6 +7,11 @@ import I from 'immutable';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+try {
+  PIXI.utils.skipHello();
+} catch (err) {
+  console.log('PIXI won\'t shut the fuck up');
+}
 // if (process.env.NODE_ENV !== 'production') {
 //   const { whyDidYouUpdate } = require('why-did-you-update');
 //   whyDidYouUpdate(React)
@@ -488,6 +493,7 @@ class App extends React.PureComponent {
               flex: '0 1 auto',
               position: 'relative',
               top: 0, left: -8,
+              marginBottom: -12,
               outline: 0,
               cursor: 'pointer',
             }}
@@ -507,6 +513,7 @@ class App extends React.PureComponent {
             <div css={{
               position: 'relative',
               flex: '0 1 auto',
+              paddingTop: 40,
             }}>
               <LabeledSlider 
                 label="Intensity"
