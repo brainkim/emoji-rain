@@ -7,10 +7,10 @@ import I from 'immutable';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-if (process.env.NODE_ENV !== 'production') {
-  const { whyDidYouUpdate } = require('why-did-you-update');
-  whyDidYouUpdate(React)
-}
+// if (process.env.NODE_ENV !== 'production') {
+//   const { whyDidYouUpdate } = require('why-did-you-update');
+//   whyDidYouUpdate(React)
+// }
 
 import { style, merge } from 'glamor';
 import { createElement } from 'glamor/react';
@@ -18,8 +18,9 @@ import { createElement } from 'glamor/react';
 
 import emojis from '../../emojis/emojis.json';
 
-import spriteData from '../../emojis/apple/ios-10.0/64x64.json';
-import spriteSheet from '../../emojis/apple/ios-10.0/64x64.png';
+import spriteData from '../../emojis/apple/ios-10.0/32x32.json';
+import spriteSheet from '../../emojis/apple/ios-10.0/32x32.png';
+
 const spriteSheetTexture = PIXI.Texture.fromImage(spriteSheet);
  
 class EmojiRainCanvas extends React.PureComponent {
@@ -233,13 +234,13 @@ class Ticker extends React.PureComponent {
 }
 
 const tabStyle = style({
-  width: '50%',
+  width: '48%',
   cursor: 'pointer',
   display: 'inline-block',
   textAlign: 'center',
   outline: 'none',
-  ':focus': {
-  },
+  borderRadius: 4,
+  fontSize: 18,
 });
 
 class EmojiSelectorTabs extends React.PureComponent {
@@ -257,29 +258,43 @@ class EmojiSelectorTabs extends React.PureComponent {
     return (
       <div
         css={{
-          marginBottom: 20,
-          width: '100%',
-          position: 'relative',
-          top: 0,
-          left: 0,
+          margin: '5px 0',
+          flex: '0 1 auto',
         }}>
         <div {...tabStyle}
+          style={{
+            marginRight: '2%',
+            border: this.props.value === 'all' ? '2px solid #b5e0fe' : 'none',
+          }}
           onClick={this.handleClick.bind(null, 'all')}
-          tabIndex="0">All</div>
+          tabIndex="0">ALL</div>
         <div {...tabStyle}
-          onClick={this.handleClick.bind(null, 'active')}
-          tabIndex="0">Active</div>
-        <div css={{
-          position: 'relative',
-          width: '50%',
-          left: this.props.value === 'all' ? 0 : '50%',
-          transition: 'left 0.5s ease-in-out',
-          backgroundColor: '#b5e0fe',
-          height: 5,
-          borderRadius: 2,
-          transition: 'left 0.5s ease-in-out',
-        }} />
+          style={{
+            marginLeft: '2%',
+            border: this.props.value === 'selected' ? '2px solid #b5e0fe' : 'none',
+          }}
+          onClick={this.handleClick.bind(null, 'selected')}
+          tabIndex="0">SELECTED</div>
       </div>
+    );
+  }
+}
+
+class CloseIcon extends React.PureComponent {
+  render() {
+    return (
+      <svg width="40" height="40" viewBox="0 0 40 40">
+        <path stroke="#b5e0fe" d="M 10,10 L 30,30 M 30,10 L 10,30" />
+      </svg>
+    );
+  }
+}
+
+class SliderIcon extends React.PureComponent {
+  render() {
+    return (
+      <svg width="40" height="40" fill="#b5e0fe" viewBox="0 0 100 100"><path d="M53,61.155c-3.023,0-5.558,2.104-6.234,4.921H27.011c-0.829,0-1.5,0.672-1.5,1.5s0.671,1.5,1.5,1.5h19.757  c0.68,2.813,3.212,4.913,6.232,4.913c3.538,0,6.416-2.879,6.416-6.417S56.538,61.155,53,61.155z M53,70.989  c-1.883,0-3.414-1.529-3.417-3.41c0-0.001,0-0.002,0-0.003c0-0.002,0-0.005,0-0.007c0.001-1.883,1.534-3.414,3.417-3.414  s3.416,1.533,3.416,3.417S54.884,70.989,53,70.989z M27.01,32.927h23.756c0.678,2.816,3.212,4.918,6.232,4.918  c3.538,0,6.417-2.879,6.417-6.418c0-3.538-2.879-6.416-6.417-6.416c-3.021,0-5.555,2.101-6.232,4.916H27.01  c-0.829,0-1.5,0.671-1.5,1.5S26.182,32.927,27.01,32.927z M56.999,28.011c1.884,0,3.417,1.532,3.417,3.416  c0,1.885-1.533,3.418-3.417,3.418s-3.417-1.533-3.417-3.418C53.582,29.543,55.115,28.011,56.999,28.011z M67.915,32.927h5.072  c0.828,0,1.5-0.671,1.5-1.5s-0.672-1.5-1.5-1.5h-5.072c-0.828,0-1.5,0.671-1.5,1.5S67.087,32.927,67.915,32.927z M72.988,48H49.832  c-0.829,0-1.5,0.671-1.5,1.5s0.671,1.5,1.5,1.5h23.156c0.828,0,1.5-0.672,1.5-1.5S73.816,48,72.988,48z M27.01,50.998h5.756  c0.678,2.816,3.211,4.918,6.233,4.918c3.539,0,6.417-2.879,6.417-6.417c0-3.539-2.878-6.417-6.417-6.417  c-3.021,0-5.554,2.101-6.232,4.917H27.01c-0.829,0-1.5,0.671-1.5,1.5S26.182,50.998,27.01,50.998z M39,46.082  c1.884,0,3.417,1.533,3.417,3.417S40.884,52.916,39,52.916s-3.417-1.532-3.417-3.417S37.115,46.082,39,46.082z M72.988,66.072  h-9.072c-0.828,0-1.5,0.672-1.5,1.5s0.672,1.5,1.5,1.5h9.072c0.828,0,1.5-0.672,1.5-1.5S73.816,66.072,72.988,66.072z"></path></svg>
+
     );
   }
 }
@@ -314,21 +329,21 @@ class EmojiSelector extends React.PureComponent {
   }
 
   render() {
+    const spriteBackgroundSize = Math.floor(spriteData.meta.width / 32 * 100).toString() + '%';
     return (
-      <div
-        css={{
-          backgroundColor: 'rgba(255, 255, 255, 0.5)',
-        }}>
+      <div css={{ display: 'flex', flex: '1 1 auto', flexFlow: 'column', margin: '10px 0' }}>
+        <div css={{ flex: '0 1 auto', fontSize: 20 }}>Choose Emojis:</div>
         <EmojiSelectorTabs value={this.state.tab} onChange={this.handleTabChange} />
         <div css={{
-          width: 500,
-          maxHeight: 400,
           padding: 20,
           position: 'relative',
           overflowX: 'hidden',
-          overflowY: 'scroll',
+          overflowY: 'auto',
+          border: '2px solid #b5e0fe',
+          borderRadius: 4,
+          flex: '1 1 auto',
         }}>
-          {emojis.filter((e) => e.hasApple).map((e, i) => {
+          {emojis.filter((e) => spriteData.frames[e.codePoint + '.png'] != null).map((e, i) => {
             const src = process.publicPath + 'assets/emojis/apple/24x24/' + e.codePoint + '.png';
             const isSelected = this.props.selected.includes(e.text);
             let frame = spriteData.frames[e.codePoint + '.png'];
@@ -370,14 +385,14 @@ class EmojiSelector extends React.PureComponent {
                       left: '50%',
                       transform: 'translate(-50%, -50%)',
                       userSelect: 'none',
-                      opacity: isSelected ? 1 : 0.6,
                       outline: 0,
                       transition: 'opacity 250ms ease-out',
-                      backgroundSize: '4400%',
+                      backgroundSize: spriteBackgroundSize,
                       backgroundImage: `url(${spriteSheet})`,
                     }}
                     style={{
-                      backgroundPosition: frame != null ? `${frame.x * (30/64)}px ${frame.y * (30/64)}px` : null,
+                      backgroundPosition: frame != null ? `${frame.x * (30/frame.w)}px ${frame.y * (30/frame.h)}px` : null,
+                      opacity: isSelected ? 1 : 0.8,
                     }}
                     // NOTE(brian): why is img sometimes the target of the event? :3
                     data-emoji={e.text}
@@ -391,6 +406,30 @@ class EmojiSelector extends React.PureComponent {
   }
 }
 
+class LabeledSlider extends React.PureComponent {
+  static defaultProps = {
+    onChange: () => {},
+  }
+
+  render() {
+    return (
+      <div css={{ width: '100%' }}>
+        <div css={{ fontSize: 16 }}>{this.props.label}:</div>
+        <div css={{ position: 'relative', fontSize: 12 }}>
+          <div css={{ position: 'relative', left: 0 }}>{this.props.minLabel}</div>
+          <div css={{ position: 'absolute', right: 0, top: 0 }}>{this.props.maxLabel}</div>
+        </div>
+        <input
+          css={{ display: 'block', width: '100%' }}
+          type="range" min={this.props.min} max={this.props.max}
+          step={this.props.step}
+          value={this.props.fallProb}
+          onChange={this.props.onChange} />
+      </div>
+    );
+  }
+}
+
 class App extends React.PureComponent {
   state = {
     viewport: { width: 0, height: 0 },
@@ -399,10 +438,15 @@ class App extends React.PureComponent {
     fallProb: 0.005,
     mutationProb: 0.025,
     refreshRate: 80,
+    paneIsOpen: false,
   }
 
   handleSelect = (selected) => {
     this.setState({ selectedEmojis: selected });
+  }
+
+  togglePane = () => {
+    this.setState({ paneIsOpen: !this.state.paneIsOpen });
   }
 
   render() {
@@ -413,7 +457,7 @@ class App extends React.PureComponent {
 
     return (
       <div>
-        <div css={{ position: 'absolute', top: 0, left: 0 }}>
+        <div css={{ position: 'fixed', top: 0, left: 0 }}>
           <EmojiRain
             {...this.state.viewport}
             emojis={this.state.selectedEmojis}
@@ -423,12 +467,101 @@ class App extends React.PureComponent {
             refreshRate={this.state.refreshRate}
             />
         </div>
-        <div css={{ position: 'absolute', top: 0, left: 0, fontSize: 30}}>
-          <EmojiSelector selected={this.state.selectedEmojis} onSelect={this.handleSelect} />
-          <input css={inputStyle} type="range" min={0} max={0.01} step={0.0005} value={this.state.fallProb} onChange={ev => this.setState({ fallProb: ev.target.value }) } />
-          <input css={inputStyle} type="range" min={0} max={0.05} step={0.001} value={this.state.mutationProb} onChange={ev => this.setState({ mutationProb: ev.target.value })} /> 
-          <input css={inputStyle} type="range" min={20} max={200} value={this.state.refreshRate} onChange={ev => this.setState({ refreshRate: ev.target.value })} />
-          <input css={inputStyle} type="range" min={20} max={72} value={this.state.emojiSize} onChange={ev => this.setState({ emojiSize: ev.target.value })} />
+        <div css={{
+          position: 'relative',
+        }}>
+          <div css={{
+            display: 'flex',
+            flexFlow: 'column',
+            position: 'relative',
+            top: 0, left: 0,
+            width: 500,
+            height: '100vh',
+            fontSize: 30,
+            padding: '5px 20px 20px',
+            backgroundColor: 'rgba(200, 123, 204, 0.8)',
+            color: 'rgb(181, 224, 254)',
+            transform: this.state.paneIsOpen ? 'none' : 'translateX(-100%)',
+            transition: 'transform 400ms ease-out',
+          }}>
+            <div css={{
+              flex: '0 1 auto',
+              position: 'relative',
+              top: 0, left: -8,
+              outline: 0,
+            }}
+              tabIndex="0"
+              onClick={this.togglePane}
+            >
+              <CloseIcon />
+            </div>
+            <div css={{
+              flex: '0 1 auto',
+              marginBottom: 10,
+            }}>
+              <h1 css={{ fontSize: 30, display: 'inline', paddingRight: 5 }}>Emoji Rain</h1>
+              <h2 css={{ fontSize: 12, display: 'inline' }}>(Like that green Matrix rain except with emojis)</h2>
+            </div>
+            <EmojiSelector selected={this.state.selectedEmojis} onSelect={this.handleSelect} />
+            <div css={{
+              position: 'relative',
+              flex: '0 1 auto',
+            }}>
+              <LabeledSlider 
+                label="Intensity"
+                minLabel="Lighter"
+                min={0}
+                maxLabel="Heavier"
+                max={0.01}
+                step={0.0005}
+                value={this.state.fallProb}
+                onChange={ev => this.setState({ fallProb: ev.target.value })}
+              />
+              <LabeledSlider 
+                label="Mutation Rate"
+                minLabel="Fewer"
+                min={0}
+                maxLabel="More"
+                max={0.05}
+                step={0.001}
+                value={this.state.mutationProb}
+                onChange={ev => this.setState({ mutationProb: ev.target.value })}
+              />
+              <LabeledSlider 
+                label="Speed"
+                minLabel="Slower"
+                min={0}
+                maxLabel="Faster"
+                max={1}
+                step={0.001}
+                value={this.state.refreshRate}
+                onChange={ev => {
+                  this.setState({ refreshRate: - 130 * ev.target.value + 150 });
+                }}
+              />
+              <LabeledSlider
+                label="Emoji Size"
+                minLabel="Smaller"
+                min={20}
+                maxLabel="Larger"
+                max={72}
+                value={this.state.emojiSize}
+                onChange={ev => this.setState({ emojiSize: ev.target.value })} 
+              />
+            </div>
+          </div>
+          <div css={{
+            position: 'absolute',
+            top: 0, left: -8,
+            padding: '5px 20px 20px',
+            opacity: this.state.paneIsOpen ? 0 : 1,
+            outline: 0,
+          }}
+            tabIndex="0"
+            onClick={this.togglePane}
+          >
+            <SliderIcon />
+          </div>
         </div>
       </div>
     );
