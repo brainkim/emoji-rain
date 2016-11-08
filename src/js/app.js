@@ -263,7 +263,7 @@ class EmojiSelectorTabs extends React.PureComponent {
     return (
       <div
         css={{
-          margin: '5px 0',
+          margin: '0 0 5px',
           flex: '0 1 auto',
         }}>
         <div {...tabStyle}
@@ -337,7 +337,7 @@ class EmojiSelector extends React.PureComponent {
     const spriteBackgroundSize = Math.floor(spriteData.meta.width / 32 * 100).toString() + '%';
     return (
       <div css={{ display: 'flex', flex: '1 1 auto', flexFlow: 'column', margin: '10px 0' }}>
-        <div css={{ flex: '0 1 auto', fontSize: 20 }}>Choose Emojis:</div>
+        <div css={{ flex: '0 1 auto', fontSize: 16, fontWeight: 'bold' }}>Choose Emojis:</div>
         <EmojiSelectorTabs value={this.state.tab} onChange={this.handleTabChange} />
         <div css={{
           padding: 20,
@@ -419,7 +419,7 @@ class LabeledSlider extends React.PureComponent {
   render() {
     return (
       <div css={{ width: '100%' }}>
-        <div css={{ fontSize: 16 }}>{this.props.label}:</div>
+        <div css={{ fontSize: 16, fontWeight: 'bold' }}>{this.props.label}:</div>
         <div css={{ position: 'relative', fontSize: 12 }}>
           <div css={{ position: 'relative', left: 0 }}>{this.props.minLabel}</div>
           <div css={{ position: 'absolute', right: 0, top: 0 }}>{this.props.maxLabel}</div>
@@ -428,7 +428,7 @@ class LabeledSlider extends React.PureComponent {
           css={{ display: 'block', width: '100%' }}
           type="range" min={this.props.min} max={this.props.max}
           step={this.props.step}
-          value={this.props.fallProb}
+          value={this.props.value}
           onChange={this.props.onChange} />
       </div>
     );
@@ -504,9 +504,10 @@ class App extends React.PureComponent {
             </div>
             <div css={{
               flex: '0 1 auto',
-              marginBottom: 10,
+              marginBottom: 5,
             }}>
-              <h1 css={{ fontSize: 30, display: 'inline', paddingRight: 5 }}>Emoji Rain</h1>
+              <h1 css={{ fontSize: 30, fontWeight: 'bold', display: 'inline' }}>Emoji Rain</h1>
+              {'\u00a0'}
               <h2 css={{ fontSize: 12, display: 'inline' }}>(Like that green Matrix rain except with emojis)</h2>
             </div>
             <EmojiSelector selected={this.state.selectedEmojis} onSelect={this.handleSelect} />
@@ -530,7 +531,7 @@ class App extends React.PureComponent {
                 minLabel="Fewer"
                 min={0}
                 maxLabel="More"
-                max={0.05}
+                max={0.08}
                 step={0.001}
                 value={this.state.mutationProb}
                 onChange={ev => this.setState({ mutationProb: ev.target.value })}
@@ -542,9 +543,11 @@ class App extends React.PureComponent {
                 maxLabel="Faster"
                 max={1}
                 step={0.001}
-                value={this.state.refreshRate}
+
+                // my brain hurts: trying to get a slider that linearly tweens from 150 (slow) to 20 (fast)
+                value={1 - (this.state.refreshRate - 20) / (100 - 20)}
                 onChange={ev => {
-                  this.setState({ refreshRate: - 130 * ev.target.value + 150 });
+                  this.setState({ refreshRate: (20 - 100) * ev.target.value / 1 + 100 });
                 }}
               />
               <LabeledSlider
@@ -552,7 +555,7 @@ class App extends React.PureComponent {
                 minLabel="Smaller"
                 min={20}
                 maxLabel="Larger"
-                max={72}
+                max={40}
                 value={this.state.emojiSize}
                 onChange={ev => this.setState({ emojiSize: ev.target.value })} 
               />
