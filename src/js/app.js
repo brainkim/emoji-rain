@@ -489,6 +489,7 @@ class App extends React.PureComponent {
               position: 'relative',
               top: 0, left: -8,
               outline: 0,
+              cursor: 'pointer',
             }}
               tabIndex="0"
               onClick={this.togglePane}
@@ -549,6 +550,11 @@ class App extends React.PureComponent {
                 onChange={ev => this.setState({ emojiSize: ev.target.value })} 
               />
             </div>
+            <div css={{ flex: '0 1 auto', fontSize: 10, paddingTop: 30 }}>
+              Created by <a href="https://twitter.com/bravebriankim" css={{
+                color: '#fff',
+              }}>Brian Kim</a>
+            </div>
           </div>
           <div css={{
             position: 'absolute',
@@ -556,6 +562,7 @@ class App extends React.PureComponent {
             padding: '5px 20px 20px',
             opacity: this.state.paneIsOpen ? 0 : 1,
             outline: 0,
+            cursor: 'pointer',
           }}
             tabIndex="0"
             onClick={this.togglePane}
