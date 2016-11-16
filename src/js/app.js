@@ -12,10 +12,10 @@ try {
 } catch (err) {
   console.log('PIXI won\'t shut the fuck up');
 }
-// if (process.env.NODE_ENV !== 'production') {
-//   const { whyDidYouUpdate } = require('why-did-you-update');
-//   whyDidYouUpdate(React)
-// }
+if (process.env.NODE_ENV !== 'production') {
+  const { whyDidYouUpdate } = require('why-did-you-update');
+  whyDidYouUpdate(React)
+}
 
 import { style, merge } from 'glamor';
 import { createElement } from 'glamor/react';
@@ -304,6 +304,81 @@ class SliderIcon extends React.PureComponent {
   }
 }
 
+class EmojiSelectorEmoji extends React.PureComponent {
+  static defaultProps = {
+    handleSelect: () => {},
+  }
+
+  handleKeyPress = (ev) => {
+    if (ev.which === 13) {
+      this.handleClick(ev);
+    }
+  }
+
+  handleClick = (ev) => {
+    this.props.onSelect(ev);
+  }
+
+  render() {
+    const { emoji, selected, showAll } = this.props;
+    const src = process.publicPath + 'assets/emojis/apple/24x24/' + emoji.codePoint + '.png';
+    let frame = spriteData.frames[emoji.codePoint + '.png'];
+    const spriteBackgroundSize = Math.floor(spriteData.meta.width / 32 * 100).toString() + '%';
+    if (frame != null) {
+      frame = frame.frame;
+    }
+    return (
+      <a
+        href="#"
+        key={emoji.text}
+        data-emoji={emoji.text}
+        onClick={this.handleClick}
+        onKeyPress={this.handleKeyPress}
+        css={{
+          display:  showAll ? 'inline-block' : selected ? 'inline-block' : 'none',
+          cursor: 'pointer',
+          position: 'relative',
+          width: 46,
+          height: 46,
+          margin: 2,
+          borderRadius: 4,
+          backgroundColor: selected ? '#b5e0fe' : 'transparent',
+          verticalAlign: 'top',
+          transition: 'background-color 250ms ease-out',
+          ':focus': {
+            border: '1px solid #b5e0fe',
+          },
+          ':hover': {
+            border: '1px solid #b5e0fe',
+          },
+          outline: 'none',
+        }}>
+          <div
+            css={{
+              width: 30,
+              height: 30,
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              userSelect: 'none',
+              outline: 0,
+              transition: 'opacity 250ms ease-out',
+              backgroundSize: spriteBackgroundSize,
+              backgroundImage: `url(${spriteSheet})`,
+            }}
+            style={{
+              backgroundPosition: frame != null ? `${frame.x * (30/frame.w)}px ${frame.y * (30/frame.h)}px` : null,
+              opacity: selected ? 1 : 0.8,
+            }}
+            // NOTE(brian): why is img sometimes the target of the event? :3
+            data-emoji={emoji.text}
+            />
+      </a>
+    );
+  }
+}
+
 class EmojiSelector extends React.PureComponent {
   static defaultProps = {
     selected: [],
@@ -318,13 +393,7 @@ class EmojiSelector extends React.PureComponent {
     this.setState({ tab });
   }
 
-  handleKeyPress = (ev) => {
-    if (ev.which === 13) {
-      this.handleClick(ev);
-    }
-  }
-
-  handleClick = (ev) => {
+  handleEmojiSelect = (ev) => {
     const emoji = ev.target.dataset.emoji;
     if (this.props.selected.includes(emoji)) {
       this.props.onSelect(this.props.selected.remove(emoji));
@@ -334,7 +403,6 @@ class EmojiSelector extends React.PureComponent {
   }
 
   render() {
-    const spriteBackgroundSize = Math.floor(spriteData.meta.width / 32 * 100).toString() + '%';
     return (
       <div css={{ display: 'flex', flex: '1 1 auto', flexFlow: 'column', margin: '10px 0' }}>
         <div css={{ flex: '0 1 auto', fontSize: 16, fontWeight: 'bold' }}>Choose Emojis:</div>
@@ -348,61 +416,15 @@ class EmojiSelector extends React.PureComponent {
           borderRadius: 4,
           flex: '1 1 auto',
         }}>
-          {emojis.filter((e) => spriteData.frames[e.codePoint + '.png'] != null).map((e, i) => {
-            const src = process.publicPath + 'assets/emojis/apple/24x24/' + e.codePoint + '.png';
-            const isSelected = this.props.selected.includes(e.text);
-            let frame = spriteData.frames[e.codePoint + '.png'];
-            if (frame != null) {
-              frame = frame.frame;
-            }
+          {emojis.filter((e) => spriteData.frames[e.codePoint + '.png'] != null).map((e) => {
+            const selected = this.props.selected.includes(e.text);
             return (
-              <div
+              <EmojiSelectorEmoji
                 key={e.text}
-                data-emoji={e.text}
-                tabIndex="0"
-                onClick={this.handleClick}
-                onKeyPress={this.handleKeyPress}
-                css={{
-                  display: this.state.tab === 'all' ? 'inline-block' : isSelected ? 'inline-block' : 'none',
-                  cursor: 'pointer',
-                  position: 'relative',
-                  width: 46,
-                  height: 46,
-                  margin: 2,
-                  borderRadius: 4,
-                  backgroundColor: isSelected ? '#b5e0fe' : 'transparent',
-                  verticalAlign: 'top',
-                  transition: 'background-color 250ms ease-out',
-                  ':focus': {
-                    border: '1px solid #b5e0fe',
-                  },
-                  ':hover': {
-                    border: '1px solid #b5e0fe',
-                  },
-                  outline: 'none',
-                }}>
-                  <div
-                    css={{
-                      width: 30,
-                      height: 30,
-                      position: 'absolute',
-                      top: '50%',
-                      left: '50%',
-                      transform: 'translate(-50%, -50%)',
-                      userSelect: 'none',
-                      outline: 0,
-                      transition: 'opacity 250ms ease-out',
-                      backgroundSize: spriteBackgroundSize,
-                      backgroundImage: `url(${spriteSheet})`,
-                    }}
-                    style={{
-                      backgroundPosition: frame != null ? `${frame.x * (30/frame.w)}px ${frame.y * (30/frame.h)}px` : null,
-                      opacity: isSelected ? 1 : 0.8,
-                    }}
-                    // NOTE(brian): why is img sometimes the target of the event? :3
-                    data-emoji={e.text}
-                    />
-                </div>
+                emoji={e}
+                selected={selected}
+                showAll={this.state.tab === 'all'}
+                onSelect={this.handleEmojiSelect} />
             );
           })}
         </div>
@@ -433,6 +455,10 @@ class LabeledSlider extends React.PureComponent {
       </div>
     );
   }
+}
+
+function linear(t, b, c, d) {
+  return c * t / d + b;
 }
 
 class App extends React.PureComponent {
@@ -542,12 +568,13 @@ class App extends React.PureComponent {
                 min={0}
                 maxLabel="Faster"
                 max={1}
-                step={0.001}
+                step={0.01}
 
                 // my brain hurts: trying to get a slider that linearly tweens from 150 (slow) to 20 (fast)
-                value={1 - (this.state.refreshRate - 20) / (100 - 20)}
+                // value={linear(this.state.refreshRate, 0, 1, 130)}
+                value={1 - linear(this.state.refreshRate - 20, 0, 1, 130)}
                 onChange={ev => {
-                  this.setState({ refreshRate: (20 - 100) * ev.target.value / 1 + 100 });
+                  this.setState({ refreshRate: linear(ev.target.value, 150, -130, 1) });
                 }}
               />
               <LabeledSlider
