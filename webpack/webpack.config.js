@@ -54,7 +54,7 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg)$/,
         loader: 'file',
         query: {
-          name: isProduction ? 'assets/[name].[hash].[ext]' : 'assets/[name].[ext]',
+          name: isProduction ? 'assets/[name].[hash].[ext]' : 'assets/[path]/[name].[ext]',
         }
       },
     ]
