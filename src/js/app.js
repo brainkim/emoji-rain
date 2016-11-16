@@ -10,12 +10,13 @@ import ReactDOM from 'react-dom';
 try {
   PIXI.utils.skipHello();
 } catch (err) {
-  console.log('PIXI won\'t shut the fuck up');
+  console.log('PIXI won\'t shut the fuck up because', err);
 }
-if (process.env.NODE_ENV !== 'production') {
-  const { whyDidYouUpdate } = require('why-did-you-update');
-  whyDidYouUpdate(React)
-}
+
+// if (process.env.NODE_ENV !== 'production') {
+//   const { whyDidYouUpdate } = require('why-did-you-update');
+//   whyDidYouUpdate(React)
+// }
 
 import { style, merge } from 'glamor';
 import { createElement } from 'glamor/react';
@@ -23,8 +24,39 @@ import { createElement } from 'glamor/react';
 
 import emojis from '../../emojis/emojis.json';
 
-import spriteData from '../../emojis/apple/ios-10.0/32x32.json';
-import spriteSheet from '../../emojis/apple/ios-10.0/32x32.png';
+import spriteData from '../../emojis/apple/ios-5.0/64x64.json';
+import spriteSheet from '../../emojis/apple/ios-5.0/64x64.png';
+
+const spriteSheets = {
+  'ios-5.0': {
+    data: require('../../emojis/apple/ios-5.0/64x64.json'),
+    sheet: require('../../emojis/apple/ios-5.0/64x64.png'),
+  },
+  'ios-6.0': {
+    data: require('../../emojis/apple/ios-6.0/64x64.json'),
+    sheet: require('../../emojis/apple/ios-6.0/64x64.png'),
+  },
+  'ios-8.3': {
+    data: require('../../emojis/apple/ios-8.3/64x64.json'),
+    sheet: require('../../emojis/apple/ios-8.3/64x64.png'),
+  },
+  'ios-9.0': {
+    data: require('../../emojis/apple/ios-9.0/64x64.json'),
+    sheet: require('../../emojis/apple/ios-9.0/64x64.png'),
+  },
+  'ios-9.1': {
+    data: require('../../emojis/apple/ios-9.1/64x64.json'),
+    sheet: require('../../emojis/apple/ios-9.1/64x64.png'),
+  },
+  'ios-9.3': {
+    data: require('../../emojis/apple/ios-9.3/64x64.json'),
+    sheet: require('../../emojis/apple/ios-9.3/64x64.png'),
+  },
+  'ios-10.0': {
+    data: require('../../emojis/apple/ios-10.0/64x64.json'),
+    sheet: require('../../emojis/apple/ios-10.0/64x64.png'),
+  },
+};
 
 const spriteSheetTexture = PIXI.Texture.fromImage(spriteSheet);
  
@@ -45,8 +77,6 @@ class EmojiRainCanvas extends React.PureComponent {
         frame = frame.frame;
         return new PIXI.Texture(spriteSheetTexture, new PIXI.Rectangle(- frame.x, - frame.y, frame.w, frame.h));
       }
-      // const src = process.publicPath + 'assets/emojis/apple/24x24/'+ e.codePoint + '.png';
-      // return PIXI.Texture.fromImage(src);
     }).filter(t => t).toArray();
   }
 
@@ -142,7 +172,7 @@ class EmojiRainCanvas extends React.PureComponent {
     }
 
     if (prevProps.tick.step !== this.props.tick.step) {
-      const emojis = this.getEmojiTextures();
+      const emojiTextures = this.getEmojiTextures();
       for (let r = 0; r < rows; r++) {
         let row = spriteCarpet[r];
         if (row == null) {
@@ -163,13 +193,13 @@ class EmojiRainCanvas extends React.PureComponent {
             this._stage.addChild(sprite);
             row.push(sprite);
           }
-          if (emojis.length > 0 && this.state.drops[c] === r) {
+          if (emojiTextures.length > 0 && this.state.drops[c] === r) {
             sprite.alpha = 1;
-            sprite.texture = emojis[Math.floor(Math.random() * emojis.length)];
+            sprite.texture = emojiTextures[Math.floor(Math.random() * emojiTextures.length)];
           } else if (sprite.alpha > 0) {
             sprite.alpha -= 0.05;
-            if (emojis.length > 0 && Math.random() < this.props.mutationProb) {
-              sprite.texture = emojis[Math.floor(Math.random() * emojis.length)];
+            if (emojiTextures.length > 0 && Math.random() < this.props.mutationProb) {
+              sprite.texture = emojiTextures[Math.floor(Math.random() * emojiTextures.length)];
             }
           }
         }
@@ -323,10 +353,10 @@ class EmojiSelectorEmoji extends React.PureComponent {
     const { emoji, selected, showAll } = this.props;
     const src = process.publicPath + 'assets/emojis/apple/24x24/' + emoji.codePoint + '.png';
     let frame = spriteData.frames[emoji.codePoint + '.png'];
-    const spriteBackgroundSize = Math.floor(spriteData.meta.width / 32 * 100).toString() + '%';
     if (frame != null) {
       frame = frame.frame;
     }
+    const spriteBackgroundSize = Math.floor(spriteData.meta.width / frame.w * 100).toString() + '%';
     return (
       <a
         href="#"
@@ -461,7 +491,7 @@ function linear(t, b, c, d) {
   return c * t / d + b;
 }
 
-class App extends React.PureComponent {
+class EmojiRainApp extends React.PureComponent {
   state = {
     viewport: { width: 0, height: 0 },
     selectedEmojis: I.Set(emojis.slice(0, 10).map(e => e.text)),
@@ -481,11 +511,6 @@ class App extends React.PureComponent {
   }
 
   render() {
-    const inputStyle = {
-      display: 'block',
-      width: 500,
-    };
-
     return (
       <div>
         <div css={{ position: 'fixed', top: 0, left: 0 }}>
@@ -498,9 +523,7 @@ class App extends React.PureComponent {
             refreshRate={this.state.refreshRate}
             />
         </div>
-        <div css={{
-          position: 'relative',
-        }}>
+        <div css={{ position: 'relative' }}>
           <div css={{
             display: 'flex',
             flexFlow: 'column',
@@ -626,4 +649,128 @@ class App extends React.PureComponent {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+class EmojiChangelogCanvas extends React.PureComponent {
+  componentDidMount() {
+    const el = ReactDOM.findDOMNode(this);
+
+    const renderer = this._renderer = PIXI.autoDetectRenderer(this.props.width, this.props.height, {
+      transparent: true,
+      view: el,
+    });
+    const stage = this._stage = new PIXI.Container();
+
+    const spriteSheetTexture = PIXI.Texture.fromImage(spriteSheets[this.props.version].sheet);
+    const textures = emojis.map((e) => {
+      let frame = spriteSheets[this.props.version].data.frames[e.codePoint + '.png'];
+      if (frame != null) {
+        frame = frame.frame;
+        const texture = new PIXI.Texture(spriteSheetTexture, new PIXI.Rectangle(- frame.x, - frame.y, frame.w, frame.h));
+        return {
+          ...e,
+          texture,
+        };
+      }
+    }).filter(t => t);
+
+    const spriteMap = this._spriteMap = {};
+    const rows = Math.floor(this.props.height / 30);
+    const cols = Math.floor(this.props.width / 30);
+    for (let i = 0; i < textures.length; i++) {
+      const {text, texture} = textures[i];
+      const sprite = new PIXI.Sprite(texture);
+      sprite.width = 30;
+      sprite.height = 30;
+      sprite.position.x = 30 * (i % cols);
+      sprite.position.y = 30 * Math.floor(i / rows);
+      spriteMap[text] = sprite;
+      stage.addChild(sprite);
+    }
+    setTimeout(() => { renderer.render(stage); }, 100);
+  }
+
+  componentDidUpdate(prevProps) {
+    const stage = this._stage;
+    const renderer = this._renderer;
+    const spriteMap = this._spriteMap;
+ 
+    if (prevProps.width !== this.props.width || prevProps.height !== this.props.height) {
+      this._renderer.resize(this.props.width, this.props.height);
+    }
+
+    const spriteSheetTexture = PIXI.Texture.fromImage(spriteSheets['ios-5.0'].sheet);
+    const textures = emojis.map((e) => {
+      let frame = spriteSheets['ios-5.0'].data.frames[e.codePoint + '.png'];
+      if (frame != null) {
+        frame = frame.frame;
+        const texture = new PIXI.Texture(spriteSheetTexture, new PIXI.Rectangle(- frame.x, - frame.y, frame.w, frame.h));
+        return {
+          ...e,
+          texture,
+        };
+      }
+    }).filter(t => t);
+    const cols = Math.floor(this.props.width / 30);
+    for (let i = 0; i < textures.length; i++) {
+      const {text, texture} = textures[i];
+      const sprite = spriteMap[text] || new PIXI.Sprite(texture);
+      sprite.width = 30;
+      sprite.height = 30;
+      sprite.position.x = 30 * (i % cols);
+      sprite.position.y = 30 * Math.floor(i / cols);
+      spriteMap[text] = sprite;
+    }
+    setTimeout(() => { renderer.render(stage); }, 100);
+  }
+
+  render() {
+    const { width, height } = this.props;
+    return (
+      <canvas style={{ border: '1px solid white' }} width={width} height={height} />
+    );
+  }
+}
+
+class EmojiChangelogApp extends React.PureComponent {
+  state = {
+    viewport: { width: 0, height: 0 },
+    version: 'ios-5.0',
+  }
+
+  componentDidMount() {
+    this.handleResize();
+    window.addEventListener('resize', this.handleResize);
+  }
+
+  handleResize = () => {
+    this.setState({
+      viewport: {
+        width: document.documentElement.clientWidth,
+        height: document.documentElement.clientHeight,
+      },
+    });
+  }
+
+  handleVersionChange = (ev) => {
+    this.setState({ version: ev.target.value });
+  }
+
+  render() {
+    const { viewport } = this.state;
+    return (
+      <div value="1">
+        <EmojiChangelogCanvas width={viewport.width} height={viewport.height} version={this.state.version}/>
+        <select value={this.state.version} onChange={this.handleVersionChange}>
+          <option value="ios-5.0">5.0</option>
+          <option value="ios-6.0">6.0</option>
+          <option value="ios-8.3">8.3</option>
+          <option value="ios-9.0">9.0</option>
+          <option value="ios-9.1">9.1</option>
+          <option value="ios-9.3">9.3</option>
+          <option value="ios-10.0">10.0</option>
+        </select>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<EmojiChangelogApp />, document.getElementById('app'));
