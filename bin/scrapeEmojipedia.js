@@ -8,7 +8,7 @@ import cheerio from 'cheerio';
 import sharp from 'sharp';
 import async from 'async';
 
-const version = 'ios-10.0';
+const version = 'ios-5.0';
 mkdirp(`./emojis/apple/${version}/source`);
 let data = '';
 http.request({
@@ -21,7 +21,6 @@ http.request({
     data += chunk;
   });
   res.on('end', () => {
-    fs.writeFileSync('poop.html', data);
     const emojis = parseHtml(data);
     async.mapLimit(emojis, 10, fetchEmojiFromDetailPage, (err, emojis) => {
     });
