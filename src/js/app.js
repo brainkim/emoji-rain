@@ -7,6 +7,9 @@ import I from 'immutable';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import gsap from 'gsap';
+window.gsap = gsap; 
+
 try {
   PIXI.utils.skipHello();
 } catch (err) {
@@ -31,30 +34,37 @@ const spriteSheets = {
   'ios-5.0': {
     data: require('../../emojis/apple/ios-5.0/64x64.json'),
     sheet: require('../../emojis/apple/ios-5.0/64x64.png'),
+    texture: PIXI.Texture.fromImage(require('../../emojis/apple/ios-5.0/64x64.png')),
   },
   'ios-6.0': {
     data: require('../../emojis/apple/ios-6.0/64x64.json'),
     sheet: require('../../emojis/apple/ios-6.0/64x64.png'),
+    texture: PIXI.Texture.fromImage(require('../../emojis/apple/ios-6.0/64x64.png')),
   },
   'ios-8.3': {
     data: require('../../emojis/apple/ios-8.3/64x64.json'),
     sheet: require('../../emojis/apple/ios-8.3/64x64.png'),
+    texture: PIXI.Texture.fromImage(require('../../emojis/apple/ios-8.3/64x64.png')),
   },
   'ios-9.0': {
     data: require('../../emojis/apple/ios-9.0/64x64.json'),
     sheet: require('../../emojis/apple/ios-9.0/64x64.png'),
+    texture: PIXI.Texture.fromImage(require('../../emojis/apple/ios-9.0/64x64.png')),
   },
   'ios-9.1': {
     data: require('../../emojis/apple/ios-9.1/64x64.json'),
     sheet: require('../../emojis/apple/ios-9.1/64x64.png'),
+    texture: PIXI.Texture.fromImage(require('../../emojis/apple/ios-9.1/64x64.png')),
   },
   'ios-9.3': {
     data: require('../../emojis/apple/ios-9.3/64x64.json'),
     sheet: require('../../emojis/apple/ios-9.3/64x64.png'),
+    texture: PIXI.Texture.fromImage(require('../../emojis/apple/ios-9.3/64x64.png')),
   },
   'ios-10.0': {
     data: require('../../emojis/apple/ios-10.0/64x64.json'),
     sheet: require('../../emojis/apple/ios-10.0/64x64.png'),
+    texture: PIXI.Texture.fromImage(require('../../emojis/apple/ios-10.0/64x64.png')),
   },
 };
 
@@ -387,8 +397,6 @@ class EmojiSelectorEmoji extends React.PureComponent {
             css={{
               width: 30,
               height: 30,
-              position: 'absolute',
-              top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)',
               userSelect: 'none',
@@ -649,7 +657,15 @@ class EmojiRainApp extends React.PureComponent {
   }
 }
 
+const spriteSize = 64;
 class EmojiChangelogCanvas extends React.PureComponent {
+  animate = (currentTime) => {
+    requestAnimationFrame(this.animate);
+    const renderer = this._renderer;
+    const stage = this._stage;
+    renderer.render(stage);
+  }
+
   componentDidMount() {
     const el = ReactDOM.findDOMNode(this);
 
@@ -659,7 +675,7 @@ class EmojiChangelogCanvas extends React.PureComponent {
     });
     const stage = this._stage = new PIXI.Container();
 
-    const spriteSheetTexture = PIXI.Texture.fromImage(spriteSheets[this.props.version].sheet);
+    const spriteSheetTexture = spriteSheets[this.props.version].texture;
     const textures = emojis.map((e) => {
       let frame = spriteSheets[this.props.version].data.frames[e.codePoint + '.png'];
       if (frame != null) {
@@ -673,19 +689,7 @@ class EmojiChangelogCanvas extends React.PureComponent {
     }).filter(t => t);
 
     const spriteMap = this._spriteMap = {};
-    const rows = Math.floor(this.props.height / 30);
-    const cols = Math.floor(this.props.width / 30);
-    for (let i = 0; i < textures.length; i++) {
-      const {text, texture} = textures[i];
-      const sprite = new PIXI.Sprite(texture);
-      sprite.width = 30;
-      sprite.height = 30;
-      sprite.position.x = 30 * (i % cols);
-      sprite.position.y = 30 * Math.floor(i / rows);
-      spriteMap[text] = sprite;
-      stage.addChild(sprite);
-    }
-    setTimeout(() => { renderer.render(stage); }, 100);
+    requestAnimationFrame(this.animate);
   }
 
   componentDidUpdate(prevProps) {
@@ -693,13 +697,13 @@ class EmojiChangelogCanvas extends React.PureComponent {
     const renderer = this._renderer;
     const spriteMap = this._spriteMap;
  
-    if (prevProps.width !== this.props.width || prevProps.height !== this.props.height) {
-      this._renderer.resize(this.props.width, this.props.height);
+    if (prevProps.width !== this.props.width || this.getHeight(prevProps) !== this.getHeight()) {
+      this._renderer.resize(this.props.width, this.getHeight());
     }
 
-    const spriteSheetTexture = PIXI.Texture.fromImage(spriteSheets['ios-5.0'].sheet);
+    const spriteSheetTexture = PIXI.Texture.fromImage(spriteSheets[this.props.version].sheet);
     const textures = emojis.map((e) => {
-      let frame = spriteSheets['ios-5.0'].data.frames[e.codePoint + '.png'];
+      let frame = spriteSheets[this.props.version].data.frames[e.codePoint + '.png'];
       if (frame != null) {
         frame = frame.frame;
         const texture = new PIXI.Texture(spriteSheetTexture, new PIXI.Rectangle(- frame.x, - frame.y, frame.w, frame.h));
@@ -708,27 +712,77 @@ class EmojiChangelogCanvas extends React.PureComponent {
           texture,
         };
       }
+      //delete
+      return 1;
     }).filter(t => t);
-    const cols = Math.floor(this.props.width / 30);
+    const cols = Math.floor(this.props.width / spriteSize);
     for (let i = 0; i < textures.length; i++) {
+      if (textures[i] === 1) {
+        continue;
+      }
       const {text, texture} = textures[i];
-      const sprite = spriteMap[text] || new PIXI.Sprite(texture);
-      sprite.width = 30;
-      sprite.height = 30;
-      sprite.position.x = 30 * (i % cols);
-      sprite.position.y = 30 * Math.floor(i / cols);
-      spriteMap[text] = sprite;
+      let sprite;
+      if (spriteMap[text] != null) {
+        sprite = spriteMap[text];
+        sprite.texture = texture;
+        gsap.to(sprite.position, 0.4, {
+          x: spriteSize * (i % cols),
+          y: spriteSize * Math.floor(i / cols),
+        }); 
+      } else {
+        sprite = new PIXI.Sprite(texture);
+        stage.addChild(sprite);
+        spriteMap[text] = sprite;
+        sprite.position.x = spriteSize * (i % cols);
+        sprite.position.y = spriteSize * Math.floor(i / cols);
+      }
+      sprite.width = spriteSize;
+      sprite.height = spriteSize;
+      sprite.alpha = 1;
     }
-    setTimeout(() => { renderer.render(stage); }, 100);
+
+    Object.keys(spriteMap).forEach((text) => {
+      const sprite = spriteMap[text];
+      const textureExists = textures.findIndex((e) => e.text === text) !== -1; 
+      if (!textureExists) {
+        stage.removeChild(sprite);
+        delete spriteMap[text];
+      }
+    });
+  }
+
+  getHeight(props) {
+    props = props || this.props;
+    const cols = Math.floor(props.width / spriteSize);
+    const currentEmojiCount = emojis.map((e) => {
+      let frame = spriteSheets[props.version].data.frames[e.codePoint + '.png'];
+      if (frame != null) {
+        return 1;
+      }
+      // delete this line
+      return 1;
+    }).filter(t => t).length;
+    const height = Math.ceil(currentEmojiCount / cols) * spriteSize;
+    return height;
   }
 
   render() {
-    const { width, height } = this.props;
+    const height = this.getHeight();
     return (
-      <canvas style={{ border: '1px solid white' }} width={width} height={height} />
+      <canvas style={{ border: '1px solid white' }} width={this.props.width} height={height} />
     );
   }
 }
+
+const versions = [
+  ['ios-5.0', '5.0'],
+  ['ios-6.0', '6.0'],
+  ['ios-8.3', '8.3'],
+  ['ios-9.0', '9.0'],
+  ['ios-9.1', '9.1'],
+  ['ios-9.3', '9.3'],
+  ['ios-10.0', '10.0'],
+];
 
 class EmojiChangelogApp extends React.PureComponent {
   state = {
@@ -739,6 +793,12 @@ class EmojiChangelogApp extends React.PureComponent {
   componentDidMount() {
     this.handleResize();
     window.addEventListener('resize', this.handleResize);
+    window.addEventListener('keydown', this.handleKeydown);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize);
+    window.removeEventListener('keydown', this.handleKeydown);
   }
 
   handleResize = () => {
@@ -750,6 +810,13 @@ class EmojiChangelogApp extends React.PureComponent {
     });
   }
 
+  handleKeydown = (ev) => {
+    if (ev.keyCode >= 49 && ev.keyCode < 49 + versions.length && !ev.altKey && !ev.ctrlKey && !ev.metaKey && !ev.shiftKey) {
+      const version = versions[ev.keyCode - 49][0];
+      this.setState({ version });
+    }
+  }
+
   handleVersionChange = (ev) => {
     this.setState({ version: ev.target.value });
   }
@@ -757,17 +824,15 @@ class EmojiChangelogApp extends React.PureComponent {
   render() {
     const { viewport } = this.state;
     return (
-      <div value="1">
-        <EmojiChangelogCanvas width={viewport.width} height={viewport.height} version={this.state.version}/>
-        <select value={this.state.version} onChange={this.handleVersionChange}>
-          <option value="ios-5.0">5.0</option>
-          <option value="ios-6.0">6.0</option>
-          <option value="ios-8.3">8.3</option>
-          <option value="ios-9.0">9.0</option>
-          <option value="ios-9.1">9.1</option>
-          <option value="ios-9.3">9.3</option>
-          <option value="ios-10.0">10.0</option>
-        </select>
+      <div>
+        <EmojiChangelogCanvas width={viewport.width} version={this.state.version}/>
+        <div css={{position: 'fixed', bottom: 0, left: 0 }}>
+          <select value={this.state.version} onChange={this.handleVersionChange}>
+            {versions.map(([value, display]) =>
+              <option key={value} value={value}>{display}</option>
+            )}
+          </select>
+        </div>
       </div>
     );
   }
