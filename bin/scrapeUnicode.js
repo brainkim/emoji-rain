@@ -49,16 +49,16 @@ function parseData() {
   return $('table tr').filter((i, el) => {
     return $(el).children().first().get(0).tagName !== 'th';
   }).map((i, el) => {
-    const codePoint = $(el).find('td').eq(1).find('a').text().toLowerCase().replace(/\s+/g, '-').replace(/U\+/gi, '');
-    console.log(codePoint);
+    const codepoint = $(el).find('td').eq(1).find('a').text().toLowerCase().replace(/\s+/g, '-').replace(/U\+/gi, '');
+    console.log(codepoint);
     const text = $(el).find('.chars').first().text();
     const name = $(el).find('.name').first().text();
 
-    const appleImg = $(el).find('td').eq(4).find('img');
-    const appleSrc = $(appleImg).attr('src');
-    if (appleSrc != null) {
-      saveImage(codePoint, 'apple', appleSrc);
-    }
+    // const appleImg = $(el).find('td').eq(4).find('img');
+    // const appleSrc = $(appleImg).attr('src');
+    // if (appleSrc != null) {
+    //   saveImage(codePoint, 'apple', appleSrc);
+    // }
 
     // const googleImg = $(el).find('td').eq(5).find('img');
     // const googleSrc = $(googleImg).attr('src');
@@ -85,14 +85,9 @@ function parseData() {
     // }
 
     return {
-      codePoint,
+      codepoint,
       text,
       name,
-      hasApple: !!appleSrc,
-      // hasGoogle: !!googleSrc,
-      // hasTwitter: !!twitterSrc,
-      // hasEmojiOne: !!oneSrc,
-      // hasFacebook: !!facebookSrc,
     };
   }).toArray();
 }
