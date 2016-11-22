@@ -30,6 +30,7 @@
     "react": "15.3.2",
     "react-dom": "15.3.2",
     "react-lazyload": "2.1.6",
+    "react-pixi": "0.9.0",
     "runes": "0.3.0",
     "sharp": "0.16.2",
     "twemoji": "2.2.0",
