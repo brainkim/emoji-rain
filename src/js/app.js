@@ -24,7 +24,7 @@ try {
 //   whyDidYouUpdate(React)
 // }
 
-import emojis from '../../emojis/emojis.json';
+let emojis = require('../../emojis/emojis.json');
 
 let versions = [
   {
@@ -89,6 +89,7 @@ versions = versions.map((version) => {
 function updateEmojis(version, container) {
   Object.keys(container.spriteMap).forEach(codepoint => {
     if (!version.textures[codepoint]) {
+      console.log(codepoint);
       container.removeChild(container.spriteMap[codepoint]);
       delete container.spriteMap[codepoint];
     }
@@ -108,8 +109,10 @@ function updateEmojis(version, container) {
       } else {
         const sprite = container.spriteMap[emoji.codepoint];
         sprite.texture = version.textures[emoji.codepoint];
-        sprite.position.x = Math.floor(emojiCount / 5) * spriteSize;
-        sprite.position.y = (emojiCount % 5) * spriteSize;
+        TweenMax.to(sprite.position, 0.8, {
+          x: Math.floor(emojiCount / 5) * spriteSize,
+          y: (emojiCount % 5) * spriteSize,
+        });
       }
       emojiCount += 1; 
     }
