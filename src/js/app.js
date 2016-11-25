@@ -89,37 +89,43 @@ versions = versions.map((version) => {
 function updateEmojis(version, container) {
   Object.keys(container.spriteMap).forEach(codepoint => {
     if (!version.textures[codepoint]) {
-      console.log(codepoint);
       container.removeChild(container.spriteMap[codepoint]);
       delete container.spriteMap[codepoint];
     }
   });
+  const latestVersion = versions[versions.length - 1];
   let emojiCount = 0;
-  for (let i = 0; i < emojis.length; i++) {
-    const emoji = emojis[i];
+  emojis.forEach((emoji) => {
     if (version.textures[emoji.codepoint]) {
+      let sprite;
       if (!container.spriteMap[emoji.codepoint]) {
-        const sprite = new PIXI.Sprite(version.textures[emoji.codepoint]);
+        sprite = new PIXI.Sprite(version.textures[emoji.codepoint]);
         container.addChild(sprite);
         container.spriteMap[emoji.codepoint] = sprite;
         sprite.width = spriteSize;
         sprite.height = spriteSize;
-        sprite.position.x = Math.floor(emojiCount / 5) * spriteSize;
-        sprite.position.y = (emojiCount % 5) * spriteSize;
+        sprite.position.x = Math.floor(emojiCount / 20) * spriteSize;
+        sprite.position.y = (emojiCount % 20) * spriteSize;
+        sprite.alternates = {};
       } else {
-        const sprite = container.spriteMap[emoji.codepoint];
+        sprite = container.spriteMap[emoji.codepoint];
         sprite.texture = version.textures[emoji.codepoint];
-        TweenMax.to(sprite.position, 0.8, {
-          x: Math.floor(emojiCount / 5) * spriteSize,
-          y: (emojiCount % 5) * spriteSize,
+        TweenMax.to(sprite.position, 10, {
+          x: Math.floor(emojiCount / 20) * spriteSize,
+          y: (emojiCount % 20) * spriteSize,
         });
       }
-      emojiCount += 1; 
     }
+    if (latestVersion.textures[emoji.codepoint]) {
+      emojiCount += 1;
+    }
+  });
+  for (let i = 0; i < emojis.length; i++) {
+    const emoji = emojis[i];
   }
 }
 
-const spriteSize = 32;
+const spriteSize = 48;
 class EmojiChangelogCanvas extends React.PureComponent {
   state = {
     left: 0,
