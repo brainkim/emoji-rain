@@ -36,6 +36,9 @@ module.exports = {
       ],
   },
   module: {
+    noParse: [
+      /node_modules\/pixi\.js/,
+    ],
     loaders: [
       {
         test: /\.js$/,
