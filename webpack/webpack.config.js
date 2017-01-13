@@ -21,8 +21,9 @@ const extractTextPlugin = new ExtractTextWebpackPlugin( 'assets/[name]-[contenth
 });
 
 // NOTE(brian): change this to the path you use to host it b/c webpack is horrible.
-const publicPath = '/';
+// const publicPath = '/';
 // const publicPath = 'http://dracula2000.s3.amazonaws.com/demos/bodycams/';
+const publicPath = 'https://brainkim.github.io/emoji-rain/';
 
 module.exports = {
   context: path.resolve(__dirname, '../'),
@@ -61,7 +62,7 @@ module.exports = {
   },
 
   output: isProduction ? {
-    path: path.resolve(__dirname, '../dist'),
+    path: path.resolve(__dirname, '../'),
     publicPath,
     filename: 'assets/[name].[chunkhash].js'
   } : {
