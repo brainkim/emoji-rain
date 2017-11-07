@@ -1,0 +1,18 @@
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  font-family: "Open Sans", sans-serif;
+}
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
